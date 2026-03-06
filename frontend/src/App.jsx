@@ -6,11 +6,13 @@ import OurClinics from './pages/OurClinics'
 import PatientSafety from './pages/PatientSafety'
 import Doctors from './pages/Doctors'
 import Contact from './pages/Contact'
+import Navbar from './components/Navbar'
 
 
 const App = () => {
   return (
-    <div className='mx-4 sm:mx-[10%]'>
+    <div >
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/treatment' element={<Treatment/>}/>
