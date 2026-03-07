@@ -10,7 +10,10 @@ import {
   useAnimationFrame,
   AnimatePresence,
   LayoutGroup,
+  useVelocity,
+  useSpring as useFramerSpring,
 } from 'framer-motion';
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    FONTS + GLOBAL STYLES
@@ -30,27 +33,35 @@ const GlobalStyles = () => (
     ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 4px; }
 
     /* Marquee */
-    .marquee-wrap { overflow: hidden; }
-    .marquee-track {
-      display: flex; gap: 3rem; white-space: nowrap;
-      animation: marquee 22s linear infinite;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
+    .marquee-wrap { overflow: hidden; display: flex; white-space: nowrap; flex-wrap: nowrap; }
 
-    /* Cursor glow */
-    .cursor-glow {
+    /* Cursor dot */
+    .cursor-dot {
       pointer-events: none;
       position: fixed;
       top: 0; left: 0;
-      width: 340px; height: 340px;
+      width: 12px; height: 12px;
+      background-color: #3b82f6;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+      mix-blend-mode: difference;
+    }
+    .cursor-outline {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 40px; height: 40px;
+      border: 1px solid rgba(59,130,246,0.5);
+      border-radius: 50%;
       transform: translate(-50%, -50%);
       z-index: 9999;
-      transition: none;
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+    body:has(a:hover, button:hover) .cursor-outline {
+      width: 60px; height: 60px;
+      background-color: rgba(59,130,246,0.1);
+      border-color: transparent;
     }
 
     /* Treatment card image zoom */
@@ -236,12 +247,12 @@ const stats = [
 ];
 
 const treatments = [
-  { name: 'Root Canal',       desc: 'Save your tooth. Eliminate pain.',        img: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=700&q=80', path: '/treatment/root-canal' },
-  { name: 'Dental Implants',  desc: 'Permanent. Natural. Confident.',          img: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=700&q=80', path: '/treatment/dental-implants' },
-  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter, safely.',        img: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80', path: '/treatment/teeth-whitening' },
-  { name: 'Braces & Aligners',desc: 'Straight teeth, your way.',               img: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&q=80', path: '/treatment/braces-aligners' },
-  { name: 'Veneers',          desc: 'Transform your smile in days.',           img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=700&q=80', path: '/treatment/veneers' },
-  { name: 'Gum Surgery',      desc: 'Healthy gums. Strong foundation.',        img: 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=700&q=80', path: '/treatment/gum-surgery' },
+  { name: 'Root Canal',       desc: 'Save your tooth. Eliminate pain.',        img: 'https://images.unsplash.com/photo-1590625946399-caed8de91ccb?w=700&q=80', path: '/treatment/root-canal' },
+  { name: 'Dental Implants',  desc: 'Permanent. Natural. Confident.',          img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80', path: '/treatment/dental-implants' },
+  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter, safely.',        img: 'https://images.unsplash.com/photo-1445583934509-4ce6cf7510cb?w=700&q=80', path: '/treatment/teeth-whitening' },
+  { name: 'Braces & Aligners',desc: 'Straight teeth, your way.',               img: 'https://images.unsplash.com/photo-1549488316-2771804f58de?w=700&q=80', path: '/treatment/braces-aligners' },
+  { name: 'Veneers',          desc: 'Transform your smile in days.',           img: 'https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=700&q=80', path: '/treatment/veneers' },
+  { name: 'Gum Surgery',      desc: 'Healthy gums. Strong foundation.',        img: 'https://images.unsplash.com/photo-1583089456950-71708f328f42?w=700&q=80', path: '/treatment/gum-surgery' },
 ];
 
 const whyUs = [
@@ -258,6 +269,45 @@ const testimonials = [
 ];
 
 const marqueeItems = ['Root Canal Treatment','Dental Implants','Teeth Whitening','Braces & Aligners','Veneers','Gum Surgery','Wisdom Teeth Removal','Bone Grafting','Tooth Filling','Dentures'];
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PARALLAX VELOCITY MARQUEE
+───────────────────────────────────────────────────────────────────────────── */
+const VelocityMarquee = ({ children, baseVelocity = 5 }) => {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useFramerSpring(scrollVelocity, { damping: 50, stiffness: 400 });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], { clamp: false });
+
+  const x = useTransform(baseX, (v) => `${v}%`);
+  const directionFactor = useRef(1);
+
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    if (velocityFactor.get() < 0) directionFactor.current = -1;
+    else if (velocityFactor.get() > 0) directionFactor.current = 1;
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    let nextValue = baseX.get() + moveBy;
+
+    if (nextValue <= -50) nextValue += 50;
+    else if (nextValue > 0) nextValue -= 50;
+
+    baseX.set(nextValue);
+  });
+
+  return (
+    <div className="marquee-wrap bg-blue-600 py-4">
+      <motion.div className="flex gap-12 whitespace-nowrap min-w-full" style={{ x }}>
+        {children}
+        {children}
+        {children}
+        {children}
+      </motion.div>
+    </div>
+  );
+};
 
 /* ─────────────────────────────────────────────────────────────────────────────
    STAGGER CONTAINER VARIANTS
@@ -279,13 +329,21 @@ const staggerItemLeft = {
    HOME PAGE
 ───────────────────────────────────────────────────────────────────────────── */
 const Home = () => {
-  /* Cursor glow */
-  const cursorRef = useRef(null);
+  /* Custom Cursor */
+  const cursorDotRef = useRef(null);
+  const cursorOutlineRef = useRef(null);
+  
   useEffect(() => {
     const move = (e) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + 'px';
-        cursorRef.current.style.top  = e.clientY + 'px';
+      if (cursorDotRef.current && cursorOutlineRef.current) {
+        cursorDotRef.current.style.left = e.clientX + 'px';
+        cursorDotRef.current.style.top  = e.clientY + 'px';
+        
+        // Slight lag for outline
+        cursorOutlineRef.current.animate({
+          left: e.clientX + 'px',
+          top: e.clientY + 'px'
+        }, { duration: 500, fill: 'forwards' });
       }
     };
     window.addEventListener('mousemove', move);
@@ -327,8 +385,9 @@ const Home = () => {
     <div className="bg-white overflow-x-hidden dm">
       <GlobalStyles />
 
-      {/* Cursor glow effect */}
-      <div ref={cursorRef} className="cursor-glow" />
+      {/* Custom Cursor */}
+      <div ref={cursorDotRef} className="cursor-dot hidden lg:block" />
+      <div ref={cursorOutlineRef} className="cursor-outline hidden lg:block" />
 
       {/* Page scroll progress bar */}
       <motion.div
@@ -341,9 +400,9 @@ const Home = () => {
         {/* Deep parallax background */}
         <motion.div className="absolute inset-0" style={{ y: heroBgY }}>
           <img
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=85"
+            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=2000&q=90"
             alt=""
-            className="w-full h-full object-cover opacity-25"
+            className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#060e1f] via-[#060e1f]/85 to-[#060e1f]/40" />
         </motion.div>
@@ -492,21 +551,53 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* ── MARQUEE ───────────────────────────────────────────────────── */}
-      <div className="bg-blue-600 py-4 marquee-wrap">
-        <div className="marquee-track">
-          {[...marqueeItems, ...marqueeItems].map((t, i) => (
-            <span key={i} className="flex items-center gap-3 text-white text-sm font-medium tracking-wide">
-              <motion.span
-                className="w-1.5 h-1.5 bg-blue-200 rounded-full inline-block"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.1 }}
+      {/* ── BEFORE & AFTER SLIDER ──────────────────────────────────────── */}
+      <section className="bg-white py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#f8fafc] w-full h-[60%] -skew-y-2 origin-top-left -z-10" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <Reveal direction="right">
+              <p className="text-blue-600 text-xs uppercase tracking-[0.22em] font-medium mb-3">Real Results</p>
+              <h2 className="fraunces text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8">
+                Witness the <em className="text-blue-500 not-italic">transformation.</em>
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed mb-8 max-w-md font-light">
+                Our expert dentists utilize top-tier clinical precision to orchestrate astonishing smile makeovers. Drag the slider to see the difference.
+              </p>
+              <MagneticBtn
+                to="/treatment/veneers"
+                className="inline-block bg-[#060e1f] text-white font-medium px-8 py-3.5 rounded-full text-sm uppercase tracking-wide hover:bg-blue-600 transition-colors"
+              >
+                View Veneers
+              </MagneticBtn>
+            </Reveal>
+          </div>
+          
+          <Reveal direction="left" delay={0.2} className="relative z-10 w-full h-full">
+            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white aspect-[4/3]">
+              <ReactCompareSlider
+                itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=1000&q=80&blur=3" alt="Before" />}
+                itemTwo={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=1000&q=100" alt="After" />}
+                className="w-full h-full"
               />
-              {t}
-            </span>
-          ))}
+            </div>
+          </Reveal>
         </div>
-      </div>
+      </section>
+
+      {/* ── MARQUEE ───────────────────────────────────────────────────── */}
+      <VelocityMarquee baseVelocity={2}>
+        {marqueeItems.map((t, i) => (
+          <span key={i} className="flex items-center gap-4 text-white text-sm font-medium tracking-wide mx-6">
+            <motion.span
+              className="w-1.5 h-1.5 bg-blue-200 rounded-full inline-block"
+              animate={{ scale: [1, 1.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: i * 0.1 }}
+            />
+            {t}
+          </span>
+        ))}
+      </VelocityMarquee>
 
       {/* ── COUNT STATS ───────────────────────────────────────────────── */}
       <section className="bg-[#060e1f] py-24">

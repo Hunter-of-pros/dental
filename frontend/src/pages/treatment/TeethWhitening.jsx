@@ -3,6 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Teeth Whitening",
+  heroImage: "https://images.unsplash.com/photo-1445583934509-4ce6cf7510cb?w=1200&q=85",
+  beforeImage: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80&sat=-100",
+  afterImage: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=100",
   tagline: "Brighten your smile by several shades with safe, clinically proven professional teeth whitening at Clove Dental.",
   stats: [
     { value: "8+", label: "Shades Brighter" },

@@ -3,6 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Jaw Surgery",
+  heroImage: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=1200&q=85",
   tagline: "Correct jaw alignment, bite problems, and facial imbalance with expert orthognathic surgery for lasting functional and aesthetic results.",
   stats: [
     { value: "Expert", label: "Oral Surgeons" },

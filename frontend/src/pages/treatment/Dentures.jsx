@@ -3,6 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Dentures",
+  heroImage: "https://images.unsplash.com/photo-1598256989448-4cb2996e3cd4?w=1200&q=85",
   tagline: "Restore your smile and chewing ability with custom-fitted, comfortable dentures designed to look and feel natural.",
   stats: [
     { value: "Custom", label: "Fitted" },

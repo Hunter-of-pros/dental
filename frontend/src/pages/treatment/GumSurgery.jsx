@@ -3,6 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Gum Surgery",
+  heroImage: "https://images.unsplash.com/photo-1583089456950-71708f328f42?w=1200&q=85",
   tagline: "Treat advanced gum disease and restore healthy gums with precise periodontal surgery performed by specialist periodontists.",
   stats: [
     { value: "Expert", label: "Periodontists" },

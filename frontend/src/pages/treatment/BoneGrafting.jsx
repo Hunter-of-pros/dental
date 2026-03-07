@@ -3,6 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Bone Grafting",
+  heroImage: "https://plus.unsplash.com/premium_photo-1661605739019-d1010041acdf?w=1200&q=85",
   tagline: "Rebuild lost jawbone with safe, proven bone grafting procedures that prepare your jaw for implants and restore facial structure.",
   stats: [
     { value: "High", label: "Success Rate" },

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ChevronDown, ChevronUp, Phone, Calendar } from 'lucide-react';
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
 const TreatmentPage = ({ treatment }) => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -9,46 +10,74 @@ const TreatmentPage = ({ treatment }) => {
     <div className="font-sans text-gray-800 bg-white">
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="relative max-w-6xl mx-auto px-6 py-20 lg:py-28 flex flex-col lg:flex-row items-center gap-12">
+      <section className="relative bg-[#060e1f] text-white overflow-hidden py-20 lg:py-28">
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
           <div className="flex-1 text-center lg:text-left">
-            <span className="inline-block bg-white/20 text-white text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-blue-600/20 text-blue-400 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
               Clove Dental
             </span>
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-4 fraunces">
               {treatment.name}
             </h1>
-            <p className="text-blue-100 text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-xl font-light">
               {treatment.tagline}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 to="/book-appointment"
-                className="bg-white text-blue-600 font-bold px-8 py-3.5 rounded-full hover:bg-blue-50 transition-all shadow-lg text-sm uppercase tracking-wide"
+                className="bg-blue-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-blue-500 transition-all shadow-lg text-sm uppercase tracking-wide"
               >
                 Book Appointment
               </Link>
               <a
                 href="tel:18001200322"
-                className="border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2"
+                className="border border-white/25 text-white font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2"
               >
                 <Phone size={16} /> Call Now
               </a>
             </div>
           </div>
-          {/* Stats Card */}
-          <div className="shrink-0 bg-white/15 backdrop-blur-sm border border-white/25 rounded-3xl p-8 grid grid-cols-2 gap-6 text-center w-full max-w-xs">
-            {treatment.stats.map((s, i) => (
-              <div key={i}>
-                <div className="text-3xl font-bold text-white">{s.value}</div>
-                <div className="text-blue-200 text-xs mt-1">{s.label}</div>
+          
+          {/* Image & Stats Card */}
+          <div className="relative hidden lg:block">
+            {treatment.heroImage && (
+              <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl relative">
+                <img src={treatment.heroImage} alt={treatment.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060e1f]/80 to-transparent" />
               </div>
-            ))}
+            )}
+            
+            <div className={`shrink-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 grid grid-cols-2 gap-4 text-center w-full max-w-xs ${treatment.heroImage ? 'absolute -bottom-10 -left-10 shadow-2xl' : ''}`}>
+              {treatment.stats.map((s, i) => (
+                <div key={i}>
+                  <div className="text-3xl font-bold text-white fraunces">{s.value}</div>
+                  <div className="text-blue-200 text-xs mt-1">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Before & After Slider Section (if applicable) */}
+      {treatment.beforeImage && treatment.afterImage && (
+        <section className="bg-gray-50 py-20 border-b border-gray-100">
+          <div className="max-w-5xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Real Results. Absolute Precision.</h2>
+            <div className="w-12 h-1 bg-blue-600 rounded mx-auto mb-10" />
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white max-w-4xl mx-auto">
+              <ReactCompareSlider
+                itemOne={<ReactCompareSliderImage src={treatment.beforeImage} alt="Before" />}
+                itemTwo={<ReactCompareSliderImage src={treatment.afterImage} alt="After" />}
+                className="aspect-video w-full"
+              />
+            </div>
+            <p className="text-gray-500 text-sm mt-6">Drag the slider to see the astonishing transformation.</p>
+          </div>
+        </section>
+      )}
 
       {/* Overview */}
       <section className="max-w-6xl mx-auto px-6 py-16">

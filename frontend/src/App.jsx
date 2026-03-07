@@ -22,13 +22,20 @@ import JawSurgery from './pages/treatment/JawSurgery';
 import BoneGrafting from './pages/treatment/BoneGrafting';
 
 
+import BookAppointment from './pages/BookAppointment';
+
+
+import { ReactLenis } from 'lenis/react';
+
 const App = () => {
   return (
-    <div >
-      <Navbar/>
+    <ReactLenis root>
+      <div >
+        <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/treatment' element={<Treatment/>}/>
+        <Route path='/book-appointment' element={<BookAppointment/>}/>
         <Route path='/our-clinics' element = {<OurClinics/>}/>
         <Route path='/patient-safety' element = {<PatientSafety/>}/>
         <Route path='/doctors' element = {<Doctors/>}/>
@@ -48,7 +55,8 @@ const App = () => {
         <Route path="/treatment/bone-grafting" element={<BoneGrafting />} />
         
       </Routes>
-    </div>
+      </div>
+    </ReactLenis>
   )
 }
 

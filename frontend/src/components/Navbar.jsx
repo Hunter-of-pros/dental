@@ -61,7 +61,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex space-x-6 xl:space-x-8 items-center text-sm font-medium uppercase tracking-wider">
+          <ul className="hidden lg:flex space-x-6 xl:space-x-8 items-center text-sm font-medium uppercase tracking-wider" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>
             <li>
               <NavLink to="/" className={activeStyle}>Home</NavLink>
             </li>
