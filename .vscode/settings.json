@@ -1,0 +1,15 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "eslint.workingDirectories": [
+    "./frontend",
+    "./backend"
+  ],
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false
+}

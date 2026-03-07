@@ -162,7 +162,10 @@ const CountUp = ({ target, suffix = '', duration = 2 }) => {
     if (!inView) return;
     let start = 0;
     const end = parseInt(target.replace(/\D/g, ''));
-    if (!end) { setCount(target); return; }
+    if (!end) { 
+      setTimeout(() => setCount(target), 0); 
+      return; 
+    }
     const step = Math.ceil(end / (duration * 60));
     const timer = setInterval(() => {
       start += step;
@@ -359,8 +362,7 @@ const Home = () => {
 
   /* Horizontal scroll for treatments */
   const hScrollRef = useRef(null);
-  const { scrollXProgress } = useScroll({ container: hScrollRef });
-  const hScrollBar = useTransform(scrollXProgress, [0, 1], ['0%', '100%']);
+  useScroll({ container: hScrollRef });
 
   /* Filter tabs — Layout Animation */
   const [activeFilter, setActiveFilter] = useState('All');

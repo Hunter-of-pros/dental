@@ -20,10 +20,8 @@ import ToothExtraction from './pages/treatment/ToothExtraction';
 import GumSurgery from './pages/treatment/GumSurgery';
 import JawSurgery from './pages/treatment/JawSurgery';
 import BoneGrafting from './pages/treatment/BoneGrafting';
-
-
 import BookAppointment from './pages/BookAppointment';
-
+import ThankYou from './pages/ThankYou';
 
 import { ReactLenis } from 'lenis/react';
 
@@ -36,6 +34,7 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/treatment' element={<Treatment/>}/>
         <Route path='/book-appointment' element={<BookAppointment/>}/>
+        <Route path='/thank-you' element={<ThankYou/>}/>
         <Route path='/our-clinics' element = {<OurClinics/>}/>
         <Route path='/patient-safety' element = {<PatientSafety/>}/>
         <Route path='/doctors' element = {<Doctors/>}/>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Calendar, User, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+import { useNavigate } from 'react-router-dom';
+
 const BookAppointment = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,7 +17,6 @@ const BookAppointment = () => {
   });
   
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,8 +28,8 @@ const BookAppointment = () => {
       const response = await axios.post('/api/book', formData);
       
       if (response.data.success) {
-        setSuccess(true);
         toast.success("Appointment booked successfully! We've sent an email confirmation.");
+        navigate('/thank-you');
       }
     } catch (error) {
       console.error(error);
@@ -41,36 +42,6 @@ const BookAppointment = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  if (success) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center p-6 dm">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full text-center space-y-6"
-        >
-          <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle2 size={48} />
-          </div>
-          <h2 className="fraunces text-4xl font-bold text-gray-900">Booking Confirmed!</h2>
-          <p className="text-gray-600">
-            Thank you, {formData.name}. Your appointment for {formData.treatment} is requested for {formData.date}.
-          </p>
-          <p className="text-sm text-gray-500 bg-gray-50 p-4 rounded-xl">
-            We have sent a confirmation email to <strong>{formData.email}</strong>.<br/>
-            Our clinic will call you shortly to solidify the exact time.
-          </p>
-          <button 
-            onClick={() => window.location.href = '/'}
-            className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-medium w-full"
-          >
-            Return to Home
-          </button>
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-24 px-6 lg:px-12 dm flex items-center justify-center">
