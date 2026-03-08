@@ -49,10 +49,10 @@ const BookAppointment = () => {
         
         {/* Left Side: Visuals */}
         <div className="relative hidden lg:block bg-blue-600 p-12 text-white">
-          <img 
-            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80" 
+            <img 
+            src="/images/premium/hero.png" 
             alt="Clinic" 
-            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity"
+            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-blue-600/80" />
           

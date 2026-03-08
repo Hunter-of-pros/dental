@@ -3,9 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Veneers",
-  heroImage: "https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=1200&q=85",
-  beforeImage: "https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=900&q=80&blur=2",
-  afterImage: "https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=900&q=100",
+  heroImage: "/images/premium/teeth-whitening.png",
+  beforeImage: "/images/premium/teeth-whitening.png",
+  afterImage: "/images/premium/teeth-whitening.png",
   tagline: "Transform your smile with ultra-thin porcelain veneers that correct colour, shape, and size for a flawless, natural look.",
   stats: [
     { value: "0.5mm", label: "Ultra-Thin" },

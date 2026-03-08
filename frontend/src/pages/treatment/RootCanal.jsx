@@ -3,7 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Root Canal Treatment",
-  heroImage: "https://images.unsplash.com/photo-1590625946399-caed8de91ccb?w=1200&q=85",
+  heroImage: "/images/premium/root-canal.png",
+  beforeImage: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&q=80",
+  afterImage: "/images/premium/root-canal.png",
   tagline: "Save your natural tooth and relieve pain with a safe, effective root canal procedure performed by expert endodontists.",
   stats: [
     { value: "95%", label: "Success Rate" },

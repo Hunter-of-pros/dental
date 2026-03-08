@@ -23,6 +23,8 @@ import BoneGrafting from './pages/treatment/BoneGrafting';
 import BookAppointment from './pages/BookAppointment';
 import ThankYou from './pages/ThankYou';
 
+import Footer from './components/Footer';
+
 import { ReactLenis } from 'lenis/react';
 
 const App = () => {
@@ -54,6 +56,7 @@ const App = () => {
         <Route path="/treatment/bone-grafting" element={<BoneGrafting />} />
         
       </Routes>
+      <Footer />
       </div>
     </ReactLenis>
   )

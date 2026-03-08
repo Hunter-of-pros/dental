@@ -250,10 +250,10 @@ const stats = [
 ];
 
 const treatments = [
-  { name: 'Root Canal',       desc: 'Save your tooth. Eliminate pain.',        img: 'https://images.unsplash.com/photo-1590625946399-caed8de91ccb?w=700&q=80', path: '/treatment/root-canal' },
-  { name: 'Dental Implants',  desc: 'Permanent. Natural. Confident.',          img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80', path: '/treatment/dental-implants' },
-  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter, safely.',        img: 'https://images.unsplash.com/photo-1445583934509-4ce6cf7510cb?w=700&q=80', path: '/treatment/teeth-whitening' },
-  { name: 'Braces & Aligners',desc: 'Straight teeth, your way.',               img: 'https://images.unsplash.com/photo-1549488316-2771804f58de?w=700&q=80', path: '/treatment/braces-aligners' },
+  { name: 'Root Canal',       desc: 'Save your tooth. Eliminate pain.',        img: '/images/premium/root-canal.png', path: '/treatment/root-canal' },
+  { name: 'Dental Implants',  desc: 'Permanent. Natural. Confident.',          img: '/images/premium/dental-implant.png', path: '/treatment/dental-implants' },
+  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter, safely.',        img: '/images/premium/teeth-whitening.png', path: '/treatment/teeth-whitening' },
+  { name: 'Braces & Aligners',desc: 'Straight teeth, your way.',               img: '/images/premium/braces.png', path: '/treatment/braces-aligners' },
   { name: 'Veneers',          desc: 'Transform your smile in days.',           img: 'https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=700&q=80', path: '/treatment/veneers' },
   { name: 'Gum Surgery',      desc: 'Healthy gums. Strong foundation.',        img: 'https://images.unsplash.com/photo-1583089456950-71708f328f42?w=700&q=80', path: '/treatment/gum-surgery' },
 ];
@@ -402,9 +402,9 @@ const Home = () => {
         {/* Deep parallax background */}
         <motion.div className="absolute inset-0" style={{ y: heroBgY }}>
           <img
-            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=2000&q=90"
+            src="/images/premium/hero.png"
             alt=""
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-50 mix-blend-screen"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#060e1f] via-[#060e1f]/85 to-[#060e1f]/40" />
         </motion.div>
@@ -502,7 +502,7 @@ const Home = () => {
           >
             <TiltCard className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
               <img
-                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=85"
+                src="/images/premium/hero.png"
                 alt="Dental treatment"
                 className="w-full h-full object-cover"
               />
@@ -578,8 +578,25 @@ const Home = () => {
           <Reveal direction="left" delay={0.2} className="relative z-10 w-full h-full">
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white aspect-[4/3]">
               <ReactCompareSlider
-                itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=1000&q=80&blur=3" alt="Before" />}
-                itemTwo={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=1000&q=100" alt="After" />}
+                itemOne={
+                  <div className="relative w-full h-full">
+                    <ReactCompareSliderImage 
+                      src="/images/slider/whitening/before.jpg" 
+                      alt="Before" 
+                      style={{ filter: 'sepia(0.25) saturate(1.1) brightness(0.95)' }} 
+                    />
+                    <div className="absolute bottom-6 left-6 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/10">Before</div>
+                  </div>
+                }
+                itemTwo={
+                  <div className="relative w-full h-full">
+                    <ReactCompareSliderImage 
+                      src="/images/slider/whitening/after.jpg" 
+                      alt="After" 
+                    />
+                    <div className="absolute bottom-6 right-6 bg-blue-600/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-blue-400/20">After</div>
+                  </div>
+                }
                 className="w-full h-full"
               />
             </div>

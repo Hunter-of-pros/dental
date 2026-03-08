@@ -3,7 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Dental Crown & Bridge",
-  heroImage: "https://images.unsplash.com/photo-1584483766114-2cea6facdf57?w=1200&q=85",
+  heroImage: "/images/premium/root-canal.png",
+  beforeImage: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&q=80",
+  afterImage: "/images/premium/root-canal.png",
   tagline: "Restore damaged teeth or replace missing ones with durable, natural-looking crowns and bridges crafted to perfection.",
   stats: [
     { value: "2", label: "Sittings" },

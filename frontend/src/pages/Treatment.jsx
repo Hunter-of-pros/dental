@@ -1,96 +1,109 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Stethoscope, 
+  Sparkles, 
+  Trash2, 
+  Zap, 
+  Smile, 
+  Crown, 
+  Activity, 
+  Scissors, 
+  Scaling, 
+  MoveHorizontal, 
+  Binary 
+} from 'lucide-react';
 
 const treatments = [
   {
     name: "Root Canal Treatment",
     path: "/treatment/root-canal",
-    emoji: "🦷",
+    icon: <Stethoscope size={28} />,
     info: "Remove infection, save your natural tooth and relieve pain in just 1–2 sittings.",
     tag: "Most Common",
   },
   {
     name: "Teeth Whitening",
     path: "/treatment/teeth-whitening",
-    emoji: "✨",
+    icon: <Sparkles size={28} />,
     info: "Brighten your smile by up to 8 shades with safe, clinically proven whitening.",
     tag: "Cosmetic",
   },
   {
     name: "Wisdom Teeth Removal",
     path: "/treatment/wisdom-teeth-removal",
-    emoji: "🪥",
+    icon: <Trash2 size={28} />,
     info: "Painless removal of impacted or problematic wisdom teeth with fast recovery.",
     tag: "Surgical",
   },
   {
     name: "Dental Implants",
     path: "/treatment/dental-implants",
-    emoji: "🔩",
+    icon: <Zap size={28} />,
     info: "Permanent, natural-looking tooth replacement using Swiss-grade titanium implants.",
     tag: "Permanent Fix",
   },
   {
     name: "Braces & Aligners",
     path: "/treatment/braces-aligners",
-    emoji: "😁",
+    icon: <Smile size={28} />,
     info: "Straighten teeth with traditional braces or discreet clear aligners.",
     tag: "Orthodontics",
   },
   {
     name: "Dental Crown & Bridge",
     path: "/treatment/crown-bridge",
-    emoji: "👑",
+    icon: <Crown size={28} />,
     info: "Restore damaged or missing teeth with durable, natural-looking crowns and bridges.",
     tag: "Restorative",
   },
   {
     name: "Dentures",
     path: "/treatment/dentures",
-    emoji: "😊",
+    icon: <Smile size={28} />,
     info: "Custom-fitted full or partial dentures that restore your smile and chewing ability.",
     tag: "Restorative",
   },
   {
     name: "Tooth Filling",
     path: "/treatment/tooth-filling",
-    emoji: "🩹",
+    icon: <Activity size={28} />,
     info: "Treat cavities quickly with invisible, tooth-coloured composite fillings.",
     tag: "Preventive",
   },
   {
     name: "Veneers",
     path: "/treatment/veneers",
-    emoji: "💎",
+    icon: <Sparkles size={28} className="text-amber-400" />,
     info: "Ultra-thin porcelain shells that transform the colour, shape and size of your teeth.",
     tag: "Cosmetic",
   },
   {
     name: "Tooth Extraction",
     path: "/treatment/tooth-extraction",
-    emoji: "🏥",
+    icon: <Scissors size={28} />,
     info: "Safe, painless removal of severely damaged or problematic teeth with expert care.",
     tag: "Surgical",
   },
   {
     name: "Gum Surgery",
     path: "/treatment/gum-surgery",
-    emoji: "🩺",
+    icon: <Scaling size={28} />,
     info: "Treat advanced gum disease and restore healthy gums with periodontal surgery.",
     tag: "Surgical",
   },
   {
     name: "Jaw Surgery",
     path: "/treatment/jaw-surgery",
-    emoji: "🦴",
+    icon: <MoveHorizontal size={28} />,
     info: "Correct jaw alignment and bite problems with precise orthognathic surgery.",
     tag: "Surgical",
   },
   {
     name: "Bone Grafting",
     path: "/treatment/bone-grafting",
-    emoji: "🔬",
+    icon: <Binary size={28} />,
     info: "Rebuild lost jawbone to prepare for implants and restore facial structure.",
     tag: "Surgical",
   },
@@ -135,8 +148,8 @@ const Treatment = () => {
               className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-200 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-blue-100 transition-colors">
-                  {t.emoji}
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  {t.icon}
                 </div>
                 <span className={`text-xs font-semibold px-3 py-1 rounded-full ${tagColors[t.tag]}`}>
                   {t.tag}

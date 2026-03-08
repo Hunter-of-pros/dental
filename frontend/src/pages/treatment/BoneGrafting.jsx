@@ -3,8 +3,10 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Bone Grafting",
-  heroImage: "https://plus.unsplash.com/premium_photo-1661605739019-d1010041acdf?w=1200&q=85",
-  tagline: "Rebuild lost jawbone with safe, proven bone grafting procedures that prepare your jaw for implants and restore facial structure.",
+  heroImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=1200&q=80",
+  beforeImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=900&q=80",
+  afterImage: "https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?w=900&q=80",
+  tagline: "Restore your jawbone structure and create a solid foundation for dental implants and long-term oral health.",
   stats: [
     { value: "High", label: "Success Rate" },
     { value: "Natural", label: "Bone Regrowth" },

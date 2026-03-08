@@ -1,21 +1,34 @@
 import React, { useState, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { 
+  Menu, X, Phone, 
+  Stethoscope, 
+  Sparkles, 
+  Trash2, 
+  Zap, 
+  Smile, 
+  Crown, 
+  Activity, 
+  Scissors, 
+  Scaling, 
+  MoveHorizontal, 
+  Binary 
+} from 'lucide-react';
 
 const treatments = [
-  { label: "Root Canal Treatment", path: "/treatment/root-canal" },
-  { label: "Teeth Whitening", path: "/treatment/teeth-whitening" },
-  { label: "Wisdom Teeth Removal", path: "/treatment/wisdom-teeth-removal" },
-  { label: "Dental Implants", path: "/treatment/dental-implants" },
-  { label: "Braces & Aligners", path: "/treatment/braces-aligners" },
-  { label: "Dental Crown & Bridge", path: "/treatment/crown-bridge" },
-  { label: "Dentures", path: "/treatment/dentures" },
-  { label: "Tooth Filling", path: "/treatment/tooth-filling" },
-  { label: "Veneers", path: "/treatment/veneers" },
-  { label: "Tooth Extraction", path: "/treatment/tooth-extraction" },
-  { label: "Gum Surgery", path: "/treatment/gum-surgery" },
-  { label: "Jaw Surgery", path: "/treatment/jaw-surgery" },
-  { label: "Bone Grafting", path: "/treatment/bone-grafting" },
+  { label: "Root Canal Treatment", path: "/treatment/root-canal", icon: <Stethoscope size={16} /> },
+  { label: "Teeth Whitening", path: "/treatment/teeth-whitening", icon: <Sparkles size={16} /> },
+  { label: "Wisdom Teeth Removal", path: "/treatment/wisdom-teeth-removal", icon: <Trash2 size={16} /> },
+  { label: "Dental Implants", path: "/treatment/dental-implants", icon: <Zap size={16} /> },
+  { label: "Braces & Aligners", path: "/treatment/braces-aligners", icon: <Smile size={16} /> },
+  { label: "Dental Crown & Bridge", path: "/treatment/crown-bridge", icon: <Crown size={16} /> },
+  { label: "Dentures", path: "/treatment/dentures", icon: <Smile size={16} /> },
+  { label: "Tooth Filling", path: "/treatment/tooth-filling", icon: <Activity size={16} /> },
+  { label: "Veneers", path: "/treatment/veneers", icon: <Sparkles size={16} className="text-amber-500" /> },
+  { label: "Tooth Extraction", path: "/treatment/tooth-extraction", icon: <Scissors size={16} /> },
+  { label: "Gum Surgery", path: "/treatment/gum-surgery", icon: <Scaling size={16} /> },
+  { label: "Jaw Surgery", path: "/treatment/jaw-surgery", icon: <MoveHorizontal size={16} /> },
+  { label: "Bone Grafting", path: "/treatment/bone-grafting", icon: <Binary size={16} /> },
 ];
 
 const Navbar = () => {
@@ -29,8 +42,8 @@ const Navbar = () => {
 
   const activeStyle = ({ isActive }) =>
     isActive
-      ? "text-blue-600 border-b-2 border-blue-600 pb-1 font-semibold"
-      : "text-gray-900 hover:text-blue-500 transition-colors";
+      ? "text-blue-600 border-b-2 border-blue-600 pb-1 font-semibold flex items-center gap-1"
+      : "text-gray-900 border-b-2 border-transparent hover:text-blue-500 pb-1 font-medium transition-colors flex items-center gap-1";
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -72,32 +85,17 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              {/* 
-                Root cause of alignment issue: <button> has default browser styles (padding, line-height).
-                We strip all browser defaults with inline style and match NavLink exactly.
-                The blue underline only shows when isTreatmentActive (you're on a treatment page),
-                NOT on hover.
-              */}
-              <button
-                style={{
-                  all: 'unset',
-                  cursor: 'pointer',
-                  fontFamily: 'inherit',
-                  fontSize: 'inherit',
-                  letterSpacing: 'inherit',
-                  fontWeight: isTreatmentActive ? '600' : '500',
-                  color: isTreatmentActive ? '#2563eb' : 'inherit',
-                  borderBottom: isTreatmentActive ? '2px solid #2563eb' : '2px solid transparent',
-                  paddingBottom: '4px',
-                  lineHeight: 'inherit',
-                  display: 'inline',
-                  transition: 'color 0.15s',
-                }}
-                onMouseEnter={e => { if (!isTreatmentActive) e.currentTarget.style.color = '#3b82f6'; }}
-                onMouseLeave={e => { if (!isTreatmentActive) e.currentTarget.style.color = 'inherit'; }}
+              <Link
+                to="/treatment"
+                className={`transition-colors pb-1 border-b-2 flex items-center gap-1 ${
+                  isTreatmentActive 
+                    ? "text-blue-600 border-blue-600 font-semibold" 
+                    : "text-gray-900 border-transparent hover:text-blue-500 font-medium"
+                }`}
+                style={{ height: '16px', lineHeight: '16px' }}
               >
                 Treatments
-              </button>
+              </Link>
 
               {/* Dropdown Panel */}
               <div
@@ -108,15 +106,16 @@ const Navbar = () => {
                 }`}
                 style={{ zIndex: 100 }}
               >
-                <ul className="overflow-y-auto max-h-64 py-2 px-2 space-y-0.5">
+                <ul className="overflow-y-auto max-h-80 py-2 px-2 space-y-0.5 custom-scrollbar">
                   {treatments.map((item) => (
                     <li key={item.path}>
                       <Link
                         to={item.path}
                         onClick={() => setTreatmentsOpen(false)}
-                        className="block text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-3 py-2 transition-all font-normal normal-case tracking-normal"
+                        className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-3 py-2.5 transition-all font-normal normal-case tracking-normal"
                       >
-                        {item.label}
+                        <span className="text-blue-500/70 group-hover:text-blue-600 shrink-0">{item.icon}</span>
+                        <span>{item.label}</span>
                       </Link>
                     </li>
                   ))}
@@ -192,9 +191,10 @@ const Navbar = () => {
                       key={item.path}
                       to={item.path}
                       onClick={closeMenu}
-                      className="block text-sm text-gray-700 hover:text-blue-600 py-1.5 text-left pl-2 border-l-2 border-transparent hover:border-blue-400 transition-all"
+                      className="flex items-center gap-3 text-sm text-gray-700 hover:text-blue-600 py-2.5 text-left pl-2 border-l-2 border-transparent hover:border-blue-400 transition-all font-medium"
                     >
-                      {item.label}
+                      <span className="text-blue-500/70">{item.icon}</span>
+                      <span>{item.label}</span>
                     </Link>
                   ))}
                   <Link

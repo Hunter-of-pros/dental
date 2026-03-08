@@ -69,8 +69,22 @@ const TreatmentPage = ({ treatment }) => {
             <div className="w-12 h-1 bg-blue-600 rounded mx-auto mb-10" />
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white max-w-4xl mx-auto">
               <ReactCompareSlider
-                itemOne={<ReactCompareSliderImage src={treatment.beforeImage} alt="Before" />}
-                itemTwo={<ReactCompareSliderImage src={treatment.afterImage} alt="After" />}
+                itemOne={
+                  <div className="relative w-full h-full">
+                    <ReactCompareSliderImage 
+                      src={treatment.beforeImage} 
+                      alt="Before" 
+                      style={{ filter: 'sepia(0.15) saturate(0.9) brightness(0.9)' }}
+                    />
+                    <div className="absolute bottom-6 left-6 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/10">Before</div>
+                  </div>
+                }
+                itemTwo={
+                  <div className="relative w-full h-full">
+                    <ReactCompareSliderImage src={treatment.afterImage} alt="After" />
+                    <div className="absolute bottom-6 right-6 bg-blue-600/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-blue-400/20">After</div>
+                  </div>
+                }
                 className="aspect-video w-full"
               />
             </div>
