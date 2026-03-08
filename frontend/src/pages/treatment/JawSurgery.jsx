@@ -3,9 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Jaw Surgery",
-  heroImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=1200&q=80",
-  beforeImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=900&q=80",
-  afterImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80",
+  heroImage: "/images/premium/dental-implant.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2016/02/03/13/19/bad-teeth-1177038_1280.jpg",
+  afterImage: "https://cdn.pixabay.com/photo/2016/01/16/00/41/girl-1142674_1280.jpg",
   tagline: "Correct jaw alignment, bite problems, and facial imbalance with expert orthognathic surgery for lasting functional and aesthetic results.",
   stats: [
     { value: "Expert", label: "Oral Surgeons" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Lasting", label: "Results" },
     { value: "Team", label: "Approach" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Jaw Surgery",
+      points: [
+        "Severe underbite, overbite, or crossbite affecting facial symmetry",
+        "Difficulty chewing, biting, or swallowing food properly",
+        "Chronic jaw pain and TMJ problems causing daily discomfort",
+        "Facial asymmetry or imbalance affecting self-confidence",
+        "Sleep apnoea or breathing difficulties related to jaw position",
+        "Inability to close lips fully or bring front teeth together",
+      ],
+    },
+    after: {
+      title: "After Jaw Surgery",
+      points: [
+        "Properly aligned jaw with balanced, symmetrical facial profile",
+        "Comfortable, efficient chewing and biting on all foods",
+        "Jaw pain and TMJ issues resolved with corrected alignment",
+        "Harmonious facial proportions — improved appearance and confidence",
+        "Better breathing and resolution of obstructive sleep apnoea",
+        "Natural lip closure and front teeth meet properly",
+      ],
+    },
+  },
   overview:
     "Jaw surgery (orthognathic surgery) corrects irregularities of the jaw bones to improve the way the jaws and teeth fit together. It is recommended for patients with severe bite problems (malocclusion), facial asymmetry, obstructive sleep apnoea, or jaw joints issues that cannot be corrected with orthodontics alone. At Clove Dental, jaw surgery is carefully planned using 3D imaging and conducted in partnership with orthodontic treatment for comprehensive, lasting results.",
   whyClove: [

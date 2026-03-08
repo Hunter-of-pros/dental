@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Dentures",
   heroImage: "/images/premium/teeth-whitening.png",
-  beforeImage: "https://images.unsplash.com/photo-1445527815219-ecbfec67492e?w=900&q=80",
-  afterImage: "/images/premium/teeth-whitening.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2016/02/03/13/19/bad-teeth-1177038_1280.jpg",
+  afterImage: "https://cdn.pixabay.com/photo/2016/01/16/00/41/girl-1142674_1280.jpg",
   tagline: "Restore your smile and chewing ability with custom-fitted, comfortable dentures designed to look and feel natural.",
   stats: [
     { value: "Custom", label: "Fitted" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Full/Partial", label: "Options" },
     { value: "Comfortable", label: "Fit" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Dentures",
+      points: [
+        "Multiple missing teeth making it impossible to chew properly",
+        "Sunken cheeks and collapsed facial appearance from tooth loss",
+        "Embarrassment about visible gaps when smiling or talking",
+        "Slurred speech or difficulty pronouncing certain words",
+        "Restricted diet — unable to eat hard or crunchy foods",
+        "Old, loose dentures that slip, click, or cause sore spots",
+      ],
+    },
+    after: {
+      title: "After Dentures",
+      points: [
+        "Full set of natural-looking teeth — eat comfortably again",
+        "Restored facial volume and youthful appearance",
+        "A complete, beautiful smile you can be proud of",
+        "Clear, confident speech with properly fitted dentures",
+        "Enjoy a wider variety of foods with improved chewing ability",
+        "Custom-fitted dentures that stay secure and feel comfortable all day",
+      ],
+    },
+  },
   overview:
     "Dentures are removable dental prosthetics that replace missing teeth and the surrounding tissue. Full dentures replace an entire arch (upper or lower), while partial dentures fill in gaps when some natural teeth remain. At Clove Dental, dentures are custom-fabricated to match your mouth's unique shape and your desired tooth colour, ensuring a secure, comfortable fit and a natural-looking smile.",
   whyClove: [

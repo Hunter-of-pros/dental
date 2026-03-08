@@ -3,9 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Bone Grafting",
-  heroImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=1200&q=80",
-  beforeImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=900&q=80",
-  afterImage: "https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?w=900&q=80",
+  heroImage: "/images/premium/dental-implant.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/11/48/teeth-implant-3597679_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/02/19/11/19/tooth-1209321_1280.jpg",
   tagline: "Restore your jawbone structure and create a solid foundation for dental implants and long-term oral health.",
   stats: [
     { value: "High", label: "Success Rate" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Implant", label: "Ready Result" },
     { value: "Expert", label: "Surgeons" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Bone Grafting",
+      points: [
+        "Insufficient jawbone density — too thin or shallow for dental implants",
+        "Visible sunken area in the jaw from bone resorption after tooth loss",
+        "Ill-fitting dentures due to ridge collapse and bone loss",
+        "Facial sagging around the cheeks and jawline from bone deterioration",
+        "Limited treatment options — told 'not enough bone for implants'",
+        "Risk of further bone loss if the area continues without stimulation",
+      ],
+    },
+    after: {
+      title: "After Bone Grafting",
+      points: [
+        "Dense, healthy jawbone rebuilt — now fully eligible for implants",
+        "Restored jaw volume with smooth, natural bone contour",
+        "Better denture fit and stability on the rebuilt ridge",
+        "Restored facial structure — less sunken, more youthful look",
+        "Full range of tooth replacement options now available to you",
+        "Bone actively regenerating and integrating for long-term health",
+      ],
+    },
+  },
   overview:
     "Dental bone grafting is a surgical procedure that replaces missing or resorbed jawbone with graft material to stimulate new bone growth. It is most commonly performed to build up the jawbone before dental implant placement, or after tooth extraction to preserve the ridge. At Clove Dental, bone grafting uses high-quality, safe graft materials — including synthetic bone substitutes and processed donor bone — to achieve predictable, long-lasting results.",
   whyClove: [

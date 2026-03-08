@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Teeth Whitening",
   heroImage: "/images/premium/teeth-whitening.png",
-  beforeImage: "/images/slider/whitening/before.jpg",
-  afterImage: "/images/slider/whitening/after.jpg",
+  beforeImage: "https://cdn.pixabay.com/photo/2017/04/23/09/31/teeth-2414909_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/12/05/20/07/teeth-whitening-1906161_1280.jpg",
   tagline: "Brighten your smile by several shades with safe, clinically proven professional teeth whitening at Clove Dental.",
   stats: [
     { value: "8+", label: "Shades Brighter" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Safe", label: "Enamel-Friendly" },
     { value: "Long", label: "Lasting Results" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Whitening",
+      points: [
+        "Yellow, dull teeth stained by coffee, tea, and tobacco",
+        "Uneven discolouration making your smile look aged",
+        "Brown or dark spots from years of food and drink stains",
+        "Self-consciousness about smiling in photos or social settings",
+        "Over-the-counter products failed to deliver visible results",
+        "Fluorosis or medication-related discolouration affecting confidence",
+      ],
+    },
+    after: {
+      title: "After Whitening",
+      points: [
+        "Brilliantly white teeth — up to 8 shades brighter in one session",
+        "Uniform, even colour across all visible teeth",
+        "All surface stains completely removed for a fresh look",
+        "Confident, radiant smile you'll love showing off",
+        "Professional-grade results that last 6 months to 2 years",
+        "Safe, enamel-friendly procedure with no lasting sensitivity",
+      ],
+    },
+  },
   overview:
     "Professional teeth whitening at Clove Dental uses clinically approved bleaching agents activated by advanced light technology to safely break down stains on your enamel. Unlike over-the-counter products, our in-clinic whitening is supervised by trained dentists, ensuring even results without sensitivity or enamel damage. Walk in with stained teeth and leave with a noticeably brighter, more confident smile.",
   whyClove: [

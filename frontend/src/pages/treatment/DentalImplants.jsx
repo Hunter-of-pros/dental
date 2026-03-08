@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Dental Implants",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&q=80",
-  afterImage: "/images/premium/dental-implant.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/11/48/teeth-implant-3597679_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/01/16/00/41/girl-1142674_1280.jpg",
   tagline: "Replace missing teeth permanently with titanium implants that look, feel, and function exactly like natural teeth.",
   stats: [
     { value: "98%", label: "Success Rate" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Swiss", label: "Grade Implants" },
     { value: "1300+", label: "Expert Dentists" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Dental Implants",
+      points: [
+        "Visible gap from one or more missing teeth affecting your smile",
+        "Difficulty chewing food properly on the side with missing teeth",
+        "Adjacent teeth gradually shifting into the empty space",
+        "Jawbone slowly deteriorating due to lack of tooth root stimulation",
+        "Sunken facial appearance around the area of tooth loss",
+        "Self-consciousness about smiling, laughing, or speaking in public",
+      ],
+    },
+    after: {
+      title: "After Dental Implants",
+      points: [
+        "Natural-looking tooth that blends seamlessly with your existing teeth",
+        "Full chewing ability restored — eat all your favourite foods again",
+        "Adjacent teeth stay in their proper position, bite remains stable",
+        "Jawbone preserved and stimulated, preventing further bone loss",
+        "Restored facial structure and youthful appearance",
+        "Smile, laugh, and speak with absolute confidence — it's permanent",
+      ],
+    },
+  },
   overview:
     "A dental implant is a titanium post surgically placed into the jawbone to act as an artificial tooth root. Once it integrates with the bone, a custom crown is attached on top, creating a permanent, natural-looking replacement for a missing tooth. Unlike dentures or bridges, implants preserve jawbone density, prevent neighbouring teeth from shifting, and require no special maintenance. Clove Dental uses premium Swiss-made implants for long-lasting, high-quality outcomes.",
   whyClove: [

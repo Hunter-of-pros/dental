@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Dental Crown & Bridge",
   heroImage: "/images/premium/root-canal.png",
-  beforeImage: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&q=80",
-  afterImage: "/images/premium/root-canal.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/02/19/11/19/tooth-1209321_1280.jpg",
   tagline: "Restore damaged teeth or replace missing ones with durable, natural-looking crowns and bridges crafted to perfection.",
   stats: [
     { value: "2", label: "Sittings" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Natural", label: "Appearance" },
     { value: "Strong", label: "Bite Restored" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Crown & Bridge",
+      points: [
+        "Cracked, chipped, or severely worn-down tooth that's visually obvious",
+        "Weakened tooth at risk of breaking further during chewing",
+        "Visible gap from a missing tooth affecting your smile symmetry",
+        "Difficulty chewing on one side due to damaged or missing teeth",
+        "Old, discoloured crown that stands out from natural teeth",
+        "Sensitivity in the broken tooth when exposed to air or food",
+      ],
+    },
+    after: {
+      title: "After Crown & Bridge",
+      points: [
+        "Tooth fully restored with a natural-looking, colour-matched crown",
+        "Strengthened tooth structure — chew confidently on all foods",
+        "Gap seamlessly filled with a bridge that looks like real teeth",
+        "Full biting and chewing function restored on both sides",
+        "Modern zirconia or porcelain crown indistinguishable from natural teeth",
+        "No more sensitivity — the tooth is fully protected and sealed",
+      ],
+    },
+  },
   overview:
     "A dental crown is a custom-made cap that fits over a damaged, weakened, or root canal-treated tooth, restoring its shape, strength, and appearance. A dental bridge uses one or more crowns on adjacent teeth as anchors to span the gap created by a missing tooth. Both are fabricated from high-quality materials like zirconia or porcelain-fused-to-metal and are colour-matched to blend seamlessly with your natural teeth.",
   whyClove: [

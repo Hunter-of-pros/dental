@@ -89,6 +89,51 @@ const TreatmentPage = ({ treatment }) => {
               />
             </div>
             <p className="text-gray-500 text-sm mt-6">Drag the slider to see the astonishing transformation.</p>
+
+            {/* Before vs After Comparison Text */}
+            {treatment.beforeAfterComparison && (
+              <div className="grid md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto text-left">
+                {/* Before Column */}
+                <div className="bg-red-50 border border-red-100 rounded-2xl p-6 md:p-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-red-800">{treatment.beforeAfterComparison.before.title}</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {treatment.beforeAfterComparison.before.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="w-5 h-5 bg-red-200 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </span>
+                        <span className="text-red-700 text-sm leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* After Column */}
+                <div className="bg-green-50 border border-green-100 rounded-2xl p-6 md:p-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-green-800">{treatment.beforeAfterComparison.after.title}</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {treatment.beforeAfterComparison.after.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="w-5 h-5 bg-green-200 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span className="text-green-700 text-sm leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}

@@ -3,9 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Gum Surgery",
-  heroImage: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=1200&q=80",
-  beforeImage: "https://images.unsplash.com/photo-1598256989470-348630327f12?w=900&q=80",
-  afterImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80",
+  heroImage: "/images/premium/root-canal.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2017/07/22/16/05/dentist-2530990_1280.jpg",
+  afterImage: "https://cdn.pixabay.com/photo/2017/05/25/09/49/smile-2342921_1280.jpg",
   tagline: "Treat advanced gum disease and restore healthy gums with precise periodontal surgery performed by specialist periodontists.",
   stats: [
     { value: "Expert", label: "Periodontists" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Proven", label: "Results" },
     { value: "Long", label: "Lasting Health" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Gum Surgery",
+      points: [
+        "Red, swollen gums that bleed easily when brushing or flossing",
+        "Receding gum line making teeth appear unnaturally long",
+        "Deep gum pockets (5mm+) harbouring bacteria and infection",
+        "Persistent bad breath (halitosis) that won't go away",
+        "Loose teeth from bone loss caused by untreated periodontitis",
+        "Tender, painful gums that make eating uncomfortable",
+      ],
+    },
+    after: {
+      title: "After Gum Surgery",
+      points: [
+        "Healthy pink gums — no more bleeding during brushing",
+        "Gum line restored to a natural, aesthetically pleasing position",
+        "Shallow, healthy gum pockets that are easy to maintain",
+        "Fresh breath restored with infection completely eliminated",
+        "Teeth stabilised — bone loss halted and gums reattached",
+        "Comfortable, pain-free gums that feel firm and healthy",
+      ],
+    },
+  },
   overview:
     "Gum surgery (periodontal surgery) is recommended when non-surgical treatments like scaling and root planing cannot adequately address advanced gum disease. It involves accessing the roots of the teeth by folding back the gum tissue, removing diseased tissue and bacteria, and repositioning the gums for better healing and easier long-term maintenance. Clove Dental's periodontists use minimally invasive techniques to achieve excellent outcomes with faster recovery.",
   whyClove: [

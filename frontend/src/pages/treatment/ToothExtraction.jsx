@@ -3,9 +3,9 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Tooth Extraction",
-  heroImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&q=85",
-  beforeImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80",
-  afterImage: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&q=80",
+  heroImage: "/images/premium/dental-implant.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2017/05/25/09/49/smile-2342921_1280.jpg",
   tagline: "Safe, painless tooth removal performed by expert dentists with comprehensive aftercare for a smooth, quick recovery.",
   stats: [
     { value: "20", label: "Min Procedure" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Fast", label: "Healing" },
     { value: "Expert", label: "Care" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Tooth Extraction",
+      points: [
+        "Severely decayed or broken tooth causing constant pain",
+        "Swollen, infected gums around the damaged tooth",
+        "Difficulty eating — sharp pain when chewing on that side",
+        "Bad taste or smell from the infected, decaying tooth",
+        "Fever or facial swelling from spreading dental abscess",
+        "Concern about the damaged tooth affecting neighbouring teeth",
+      ],
+    },
+    after: {
+      title: "After Tooth Extraction",
+      points: [
+        "Complete pain relief — the source of infection is removed",
+        "Healthy, healing gum tissue where the tooth was removed",
+        "Ability to eat comfortably on both sides again (after healing)",
+        "Fresh, clean mouth with no more bad taste or odour",
+        "Infection fully resolved — no more swelling or fever",
+        "Space ready for implant or bridge to restore your complete smile",
+      ],
+    },
+  },
   overview:
     "While preserving natural teeth is always the priority, there are situations where extraction is the best course of action — such as severe decay, advanced gum disease, dental crowding, or a cracked tooth beyond repair. Clove Dental's dentists perform simple and surgical extractions with the highest standards of care, ensuring a comfortable, dignified experience and providing detailed post-extraction instructions for fast, complication-free healing.",
   whyClove: [

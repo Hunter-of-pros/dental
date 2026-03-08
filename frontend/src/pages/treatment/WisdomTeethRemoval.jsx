@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Wisdom Teeth Removal",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&q=80",
-  afterImage: "/images/premium/dental-implant.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2017/07/22/16/05/dentist-2530990_1280.jpg",
+  afterImage: "https://cdn.pixabay.com/photo/2017/05/25/09/49/smile-2342921_1280.jpg",
   tagline: "Painless, expert extraction of impacted or problematic wisdom teeth with fast healing and complete aftercare support.",
   stats: [
     { value: "30", label: "Min Procedure" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Safe", label: "Anaesthesia" },
     { value: "Fast", label: "Recovery" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Wisdom Teeth Removal",
+      points: [
+        "Intense pain and throbbing at the back of the jaw",
+        "Swollen, inflamed gums around the impacted wisdom tooth",
+        "Difficulty opening mouth fully or eating comfortably",
+        "Recurring infections (pericoronitis) causing fever and discomfort",
+        "Adjacent teeth getting crowded or pushed out of alignment",
+        "Food constantly trapping behind the partially erupted tooth",
+      ],
+    },
+    after: {
+      title: "After Wisdom Teeth Removal",
+      points: [
+        "Complete pain relief — no more jaw aching or throbbing",
+        "Gums heal cleanly within 1–2 weeks, swelling fully resolved",
+        "Full jaw mobility restored — eat, talk, and yawn freely",
+        "No more recurring infections or antibiotics needed",
+        "Surrounding teeth stay properly aligned and healthy",
+        "Easy-to-clean area with no more food trapping issues",
+      ],
+    },
+  },
   overview:
     "Wisdom teeth, or third molars, typically emerge in the late teens or early twenties. When there isn't enough space in the jaw, they become impacted — stuck beneath the gum or growing at an angle — causing pain, infection, and damage to adjacent teeth. Clove Dental's oral surgeons perform wisdom tooth extractions with precision and care, using local anaesthesia for a pain-free experience and providing detailed aftercare instructions for a smooth recovery.",
   whyClove: [

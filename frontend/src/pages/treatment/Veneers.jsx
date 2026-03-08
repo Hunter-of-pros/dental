@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Veneers",
   heroImage: "/images/premium/teeth-whitening.png",
-  beforeImage: "/images/premium/teeth-whitening.png",
-  afterImage: "/images/premium/teeth-whitening.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2017/04/23/09/31/teeth-2414909_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/12/05/20/07/teeth-whitening-1906161_1280.jpg",
   tagline: "Transform your smile with ultra-thin porcelain veneers that correct colour, shape, and size for a flawless, natural look.",
   stats: [
     { value: "0.5mm", label: "Ultra-Thin" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Stain", label: "Resistant" },
     { value: "Custom", label: "Shade Match" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Veneers",
+      points: [
+        "Chipped, cracked, or worn-down front teeth that are visibly damaged",
+        "Permanent stains and discolouration that whitening cannot fix",
+        "Uneven, irregularly shaped teeth creating an asymmetric smile",
+        "Minor gaps between front teeth that bother you every time you smile",
+        "Teeth worn down by grinding, looking shorter and flatter",
+        "Feeling the need to hide your teeth when smiling or speaking",
+      ],
+    },
+    after: {
+      title: "After Veneers",
+      points: [
+        "Perfectly shaped, smooth teeth — all chips and cracks concealed",
+        "Brilliant, uniform white colour that stays stain-resistant for years",
+        "Symmetrical, magazine-worthy smile with perfectly proportioned teeth",
+        "All gaps closed — teeth appear naturally seamless together",
+        "Restored tooth length and shape for a youthful appearance",
+        "A stunning Hollywood smile you'll confidently show in every photo",
+      ],
+    },
+  },
   overview:
     "Dental veneers are wafer-thin shells of porcelain or composite resin bonded to the front surface of teeth to improve their colour, shape, size, or length. They are a popular cosmetic choice for patients looking to correct chipped, stained, slightly crooked, or uneven teeth without extensive dental work. At Clove Dental, veneers are custom-crafted to complement your facial features and desired smile aesthetic.",
   whyClove: [

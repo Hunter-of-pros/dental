@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Root Canal Treatment",
   heroImage: "/images/premium/root-canal.png",
-  beforeImage: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&q=80",
-  afterImage: "/images/premium/root-canal.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/02/19/11/19/tooth-1209321_1280.jpg",
   tagline: "Save your natural tooth and relieve pain with a safe, effective root canal procedure performed by expert endodontists.",
   stats: [
     { value: "95%", label: "Success Rate" },
@@ -13,6 +13,30 @@ const data = {
     { value: "700+", label: "Clinics" },
     { value: "0", label: "Tooth Loss" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Root Canal",
+      points: [
+        "Severe, throbbing toothache that keeps you up at night",
+        "Sharp pain when eating or drinking hot and cold foods",
+        "Darkened or discoloured tooth due to internal infection",
+        "Swollen, tender gums with pus-filled abscess near the root",
+        "Bad taste in mouth from draining infection",
+        "Risk of tooth loss if infection spreads to jawbone",
+      ],
+    },
+    after: {
+      title: "After Root Canal",
+      points: [
+        "Complete pain relief — the toothache is entirely gone",
+        "Eat and drink comfortably without any sensitivity",
+        "Tooth restored to natural colour with a custom crown",
+        "Infection fully eliminated, healthy gums restored",
+        "Fresh breath and clean, healthy mouth",
+        "Natural tooth preserved for a lifetime with proper care",
+      ],
+    },
+  },
   overview:
     "Root Canal Treatment (RCT) is a dental procedure that removes infected or damaged pulp from inside the tooth, cleans and disinfects the root canals, and seals them to prevent re-infection. It is the most effective way to save a tooth that would otherwise need to be extracted. At Clove Dental, our endodontists use advanced rotary instruments and digital X-rays to ensure a comfortable, precise experience.",
   whyClove: [

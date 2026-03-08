@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Tooth Filling",
   heroImage: "/images/premium/teeth-whitening.png",
-  beforeImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&q=80",
-  afterImage: "/images/premium/teeth-whitening.png",
+  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
+  afterImage: "https://cdn.pixabay.com/photo/2016/12/05/20/07/teeth-whitening-1906161_1280.jpg",
   tagline: "Treat cavities quickly and effectively with tooth-coloured composite fillings that blend invisibly with your natural teeth.",
   stats: [
     { value: "30", label: "Min Procedure" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Durable", label: "Long-Lasting" },
     { value: "1", label: "Sitting" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Tooth Filling",
+      points: [
+        "Visible dark holes or black spots on the tooth surface",
+        "Sharp pain when eating sweets, hot, or cold foods",
+        "Rough, jagged edges that catch your tongue or cheek",
+        "Food constantly getting stuck in the cavity",
+        "Bad breath from bacteria accumulating in the decayed area",
+        "Risk of infection spreading deeper into the tooth if left untreated",
+      ],
+    },
+    after: {
+      title: "After Tooth Filling",
+      points: [
+        "Smooth, flawless tooth surface — cavity completely invisible",
+        "Eat and drink freely without any pain or sensitivity",
+        "Natural-feeling tooth contour — no rough edges",
+        "No more food trapping — the tooth is fully sealed",
+        "Fresh, clean mouth with no bacterial buildup in the cavity",
+        "Tooth structure strengthened, preventing further decay progression",
+      ],
+    },
+  },
   overview:
     "A tooth filling is used to restore a tooth damaged by decay, returning it to its normal function and shape. At Clove Dental, we use composite resin (tooth-coloured) fillings that bond directly to your tooth, blending seamlessly with your natural enamel. The decayed material is removed, the area is cleaned, and the filling is placed and hardened with a curing light — all in a single, pain-free visit.",
   whyClove: [

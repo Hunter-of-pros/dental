@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Braces & Aligners",
   heroImage: "/images/premium/braces.png",
-  beforeImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80&sat=-50",
-  afterImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=100",
+  beforeImage: "https://cdn.pixabay.com/photo/2016/02/03/13/19/bad-teeth-1177038_1280.jpg",
+  afterImage: "https://cdn.pixabay.com/photo/2016/01/20/19/25/girl-1152060_1280.jpg",
   tagline: "Straighten your teeth and achieve a perfect bite with modern braces and virtually invisible aligner solutions.",
   stats: [
     { value: "6–18", label: "Months Treatment" },
@@ -13,6 +13,30 @@ const data = {
     { value: "Expert", label: "Orthodontists" },
     { value: "All", label: "Ages Welcome" },
   ],
+  beforeAfterComparison: {
+    before: {
+      title: "Before Braces & Aligners",
+      points: [
+        "Crooked, overlapping teeth that are hard to clean properly",
+        "Visible gaps between teeth affecting your smile's appearance",
+        "Overbite, underbite, or crossbite causing chewing difficulties",
+        "Jaw pain and TMJ discomfort from misaligned bite",
+        "Plaque buildup in hard-to-reach areas leading to cavities",
+        "Avoiding smiling in photos due to self-consciousness",
+      ],
+    },
+    after: {
+      title: "After Braces & Aligners",
+      points: [
+        "Perfectly straight, evenly aligned teeth in a beautiful arch",
+        "No gaps — teeth sit together naturally for a seamless smile",
+        "Corrected bite — chewing is comfortable and efficient",
+        "Jaw pain relieved with properly distributed bite forces",
+        "Easy-to-clean teeth reducing risk of cavities and gum disease",
+        "A confident, photogenic smile you'll love showing off",
+      ],
+    },
+  },
   overview:
     "Orthodontic treatment at Clove Dental corrects crooked teeth, gaps, overcrowding, and bite problems using traditional metal braces, ceramic braces, or clear aligners. Our specialist orthodontists create personalised treatment plans with precise tooth movement tracked at every step. Whether you prefer discreet clear aligners like Clove Aligners or Invisalign, or traditional braces, we have the right solution for you.",
   whyClove: [
