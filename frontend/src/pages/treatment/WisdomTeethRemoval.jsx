@@ -1,11 +1,14 @@
 import React from 'react';
 import TreatmentPage from '../../components/TreatmentPage';
+import wisdomBefore from '../../assets/wbefore.jpg';
+import wisdomAfter from '../../assets/wafter.jpg'
+
 
 const data = {
   name: "Wisdom Teeth Removal",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "",
-  afterImage: "",
+  beforeImage: wisdomBefore,
+  afterImage: wisdomAfter,
   tagline: "Painless, expert extraction of impacted or problematic wisdom teeth with fast healing and complete aftercare support.",
   stats: [
     { value: "30", label: "Min Procedure" },
