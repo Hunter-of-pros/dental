@@ -41,7 +41,7 @@ app.post('/api/book', async (req, res) => {
 
     try {
       const data = await resend.emails.send({
-        from: 'Acme <onboarding@resend.dev>',
+        from: 'dental <onboarding@resend.dev>',
         to: ['vikasm8660@gmail.com'], 
         subject: `New Appointment Request - ${name}`,
         html: `

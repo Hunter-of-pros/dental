@@ -1,11 +1,14 @@
 import React from 'react';
 import TreatmentPage from '../../components/TreatmentPage';
+import extractionAfter from '../../assets/extractionafter.jpeg';
+import extractionBefore from '../../assets/extractionbefore.jpeg';
+
 
 const data = {
   name: "Tooth Extraction",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "",
-  afterImage: "",
+  beforeImage: extractionBefore,
+  afterImage: extractionAfter,
   tagline: "Safe, painless tooth removal performed by expert dentists with comprehensive aftercare for a smooth, quick recovery.",
   stats: [
     { value: "20", label: "Min Procedure" },
