@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Braces & Aligners",
   heroImage: "/images/premium/braces.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2016/02/03/13/19/bad-teeth-1177038_1280.jpg",
-  afterImage: "https://cdn.pixabay.com/photo/2016/01/20/19/25/girl-1152060_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Straighten your teeth and achieve a perfect bite with modern braces and virtually invisible aligner solutions.",
   stats: [
     { value: "6–18", label: "Months Treatment" },

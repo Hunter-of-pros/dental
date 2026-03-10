@@ -62,7 +62,7 @@ const TreatmentPage = ({ treatment }) => {
       </section>
 
       {/* Before & After Slider Section (if applicable) */}
-      {treatment.beforeImage && treatment.afterImage && (
+      {treatment.beforeImage && treatment.afterImage && treatment.beforeImage !== "" && treatment.afterImage !== "" && (
         <section className="bg-gray-50 py-20 border-b border-gray-100">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Real Results. Absolute Precision.</h2>

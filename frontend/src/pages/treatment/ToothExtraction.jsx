@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Tooth Extraction",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
-  afterImage: "https://cdn.pixabay.com/photo/2017/05/25/09/49/smile-2342921_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Safe, painless tooth removal performed by expert dentists with comprehensive aftercare for a smooth, quick recovery.",
   stats: [
     { value: "20", label: "Min Procedure" },

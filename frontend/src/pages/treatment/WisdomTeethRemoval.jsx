@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Wisdom Teeth Removal",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2017/07/22/16/05/dentist-2530990_1280.jpg",
-  afterImage: "https://cdn.pixabay.com/photo/2017/05/25/09/49/smile-2342921_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Painless, expert extraction of impacted or problematic wisdom teeth with fast healing and complete aftercare support.",
   stats: [
     { value: "30", label: "Min Procedure" },

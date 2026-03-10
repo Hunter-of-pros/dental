@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Dental Implants",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/11/48/teeth-implant-3597679_1280.png",
-  afterImage: "https://cdn.pixabay.com/photo/2016/01/16/00/41/girl-1142674_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Replace missing teeth permanently with titanium implants that look, feel, and function exactly like natural teeth.",
   stats: [
     { value: "98%", label: "Success Rate" },

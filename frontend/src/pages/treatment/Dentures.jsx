@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Dentures",
   heroImage: "/images/premium/teeth-whitening.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2016/02/03/13/19/bad-teeth-1177038_1280.jpg",
-  afterImage: "https://cdn.pixabay.com/photo/2016/01/16/00/41/girl-1142674_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Restore your smile and chewing ability with custom-fitted, comfortable dentures designed to look and feel natural.",
   stats: [
     { value: "Custom", label: "Fitted" },

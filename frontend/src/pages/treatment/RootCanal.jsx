@@ -1,11 +1,12 @@
-import React from 'react';
+import rootBefore from '../../assets/rootbefore.jpg';
+import rootAfter from '../../assets/rootafter.jpg';
 import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Root Canal Treatment",
   heroImage: "/images/premium/root-canal.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
-  afterImage: "https://cdn.pixabay.com/photo/2016/02/19/11/19/tooth-1209321_1280.jpg",
+  beforeImage: rootBefore,
+  afterImage: rootAfter,
   tagline: "Save your natural tooth and relieve pain with a safe, effective root canal procedure performed by expert endodontists.",
   stats: [
     { value: "95%", label: "Success Rate" },

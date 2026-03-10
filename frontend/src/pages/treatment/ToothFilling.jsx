@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Tooth Filling",
   heroImage: "/images/premium/teeth-whitening.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/19/29/dental-3599718_1280.png",
-  afterImage: "https://cdn.pixabay.com/photo/2016/12/05/20/07/teeth-whitening-1906161_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Treat cavities quickly and effectively with tooth-coloured composite fillings that blend invisibly with your natural teeth.",
   stats: [
     { value: "30", label: "Min Procedure" },

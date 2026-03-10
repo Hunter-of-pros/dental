@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Jaw Surgery",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2016/02/03/13/19/bad-teeth-1177038_1280.jpg",
-  afterImage: "https://cdn.pixabay.com/photo/2016/01/16/00/41/girl-1142674_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Correct jaw alignment, bite problems, and facial imbalance with expert orthognathic surgery for lasting functional and aesthetic results.",
   stats: [
     { value: "Expert", label: "Oral Surgeons" },

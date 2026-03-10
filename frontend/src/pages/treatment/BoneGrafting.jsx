@@ -4,8 +4,8 @@ import TreatmentPage from '../../components/TreatmentPage';
 const data = {
   name: "Bone Grafting",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "https://cdn.pixabay.com/photo/2018/08/25/11/48/teeth-implant-3597679_1280.png",
-  afterImage: "https://cdn.pixabay.com/photo/2016/02/19/11/19/tooth-1209321_1280.jpg",
+  beforeImage: "",
+  afterImage: "",
   tagline: "Restore your jawbone structure and create a solid foundation for dental implants and long-term oral health.",
   stats: [
     { value: "High", label: "Success Rate" },
