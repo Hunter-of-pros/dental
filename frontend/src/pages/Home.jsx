@@ -230,12 +230,19 @@ const stats = [
 ];
 
 const treatments = [
-  { name: 'Root Canal',       desc: 'Save your tooth. Eliminate pain.',        img: '/images/premium/root-canal.png', path: '/treatment/root-canal' },
-  { name: 'Dental Implants',  desc: 'Permanent. Natural. Confident.',          img: '/images/premium/dental-implant.png', path: '/treatment/dental-implants' },
-  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter, safely.',        img: '/images/premium/teeth-whitening.png', path: '/treatment/teeth-whitening' },
-  { name: 'Braces & Aligners',desc: 'Straight teeth, your way.',               img: '/images/premium/braces.png', path: '/treatment/braces-aligners' },
-  { name: 'Veneers',          desc: 'Transform your smile in days.',           img: 'https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=700&q=80', path: '/treatment/veneers' },
-  { name: 'Gum Surgery',      desc: 'Healthy gums. Strong foundation.',        img: 'https://images.unsplash.com/photo-1583089456950-71708f328f42?w=700&q=80', path: '/treatment/gum-surgery' },
+  { name: 'Root Canal',       desc: 'Save your natural tooth. Eliminate pain quickly.',        img: '/images/premium/RCT.gif', path: '/treatment/root-canal' },
+  { name: 'Dental Implants',  desc: 'Permanent & natural-looking tooth replacements.',          img: '/images/premium/Dental-Implants.gif', path: '/treatment/dental-implants' },
+  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter through safe treatment.',        img: '/images/premium/teeth-whitening.png', path: '/treatment/teeth-whitening' },
+  { name: 'Braces & Aligners',desc: 'Straight teeth, customized treatment for you.',               img: '/images/premium/Braces-2.gif', path: '/treatment/braces-aligners' },
+  { name: 'Crown & Bridge',   desc: 'Restore damaged teeth with durable caps.',               img: '/images/premium/Crowns.gif', path: '/treatment/crown-bridge' },
+  { name: 'Dentures',         desc: 'Custom full or partial replacement teeth.',              img: '/images/premium/Dentures.gif', path: '/treatment/dentures' },
+  { name: 'Tooth Filling',    desc: 'Treat cavities with invisible composites.',              img: '/images/premium/Dental-Fillings-1-1.gif', path: '/treatment/tooth-filling' },
+  { name: 'Wisdom Teeth',     desc: 'Painless extraction with fast recovery.',                img: '/images/premium/Wisdom-Tooth-1.gif', path: '/treatment/wisdom-teeth-removal' },
+  { name: 'Gum Surgery',      desc: 'Healthy gums and a strong foundation.',                  img: '/images/premium/Gum-Treatment.gif', path: '/treatment/gum-surgery' },
+  { name: 'Veneers',          desc: 'Transform your smile with porcelain shells.',           img: 'https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=700&q=80', path: '/treatment/veneers' },
+  { name: 'Tooth Extraction', desc: 'Safe removal of problematic or damaged teeth.',         img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=700&q=80', path: '/treatment/tooth-extraction' },
+  { name: 'Jaw Surgery',      desc: 'Correct alignment and bite problems precisely.',        img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=80', path: '/treatment/jaw-surgery' },
+  { name: 'Bone Grafting',    desc: 'Rebuild lost jawbone safely for implants.',             img: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&q=80', path: '/treatment/bone-grafting' },
 ];
 
 const whyUs = [
@@ -684,7 +691,7 @@ const Home = () => {
           {/* Grid with layout animations */}
           <motion.div
             layout
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
           >
             <AnimatePresence mode="popLayout">
               {filterMap[activeFilter].map((t, i) => (
@@ -694,20 +701,20 @@ const Home = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
                 >
                   <TiltCard className="tc-wrap group block rounded-3xl overflow-hidden bg-white border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-500 cursor-pointer h-full">
-                    <Link to={t.path} className="block h-full">
-                      <div className="aspect-[16/10] overflow-hidden">
-                        <img src={t.img} alt={t.name} width="700" height="437" loading="lazy" className="tc-img w-full h-full object-cover" />
+                    <Link to={t.path} className="block h-full flex flex-col">
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img src={t.img} alt={t.name} width="500" height="375" loading="lazy" className="tc-img w-full h-full object-cover" />
                       </div>
-                      <div className="p-6 flex items-center justify-between">
+                      <div className="p-5 flex items-start justify-between flex-1">
                         <div>
-                          <h3 className="fraunces text-xl font-bold text-gray-900 mb-1">{t.name}</h3>
-                          <p className="text-gray-500 text-sm">{t.desc}</p>
+                          <h3 className="fraunces text-lg font-bold text-gray-900 mb-1 leading-tight">{t.name}</h3>
+                          <p className="text-gray-500 text-xs leading-relaxed">{t.desc}</p>
                         </div>
                         <motion.div
-                          className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 ml-4"
+                          className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 ml-3"
                           whileHover={{ scale: 1.2, backgroundColor: '#2563eb', color: '#fff', rotate: 45 }}
                           transition={{ duration: 0.25 }}
                         >

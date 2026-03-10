@@ -3,7 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Braces & Aligners",
-  heroImage: "/images/premium/braces.png",
+  heroImage: "/images/premium/Braces-2.gif",
   beforeImage: "",
   afterImage: "",
   tagline: "Straighten your teeth and achieve a perfect bite with modern braces and virtually invisible aligner solutions.",

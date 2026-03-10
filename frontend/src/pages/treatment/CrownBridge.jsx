@@ -3,7 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Dental Crown & Bridge",
-  heroImage: "/images/premium/root-canal.png",
+  heroImage: "/images/premium/Crowns.gif",
   beforeImage: "",
   afterImage: "",
   tagline: "Restore damaged teeth or replace missing ones with durable, natural-looking crowns and bridges crafted to perfection.",

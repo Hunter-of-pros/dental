@@ -3,7 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Tooth Filling",
-  heroImage: "/images/premium/teeth-whitening.png",
+  heroImage: "/images/premium/Dental-Fillings-1-1.gif",
   beforeImage: "",
   afterImage: "",
   tagline: "Treat cavities quickly and effectively with tooth-coloured composite fillings that blend invisibly with your natural teeth.",

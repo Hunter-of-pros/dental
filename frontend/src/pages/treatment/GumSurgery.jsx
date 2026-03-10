@@ -3,7 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Gum Surgery",
-  heroImage: "/images/premium/root-canal.png",
+  heroImage: "/images/premium/Gum-Treatment.gif",
   beforeImage: "",
   afterImage: "",
   tagline: "Treat advanced gum disease and restore healthy gums with precise periodontal surgery performed by specialist periodontists.",

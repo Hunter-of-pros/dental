@@ -5,7 +5,7 @@ import implantsAfter from '../../assets/implantafter.jpeg';
 
 const data = {
   name: "Dental Implants",
-  heroImage: "/images/premium/dental-implant.png",
+  heroImage: "/images/premium/Dental-Implants.gif",
   beforeImage: implantsBefore,
   afterImage: implantsAfter,
   tagline: "Replace missing teeth permanently with titanium implants that look, feel, and function exactly like natural teeth.",

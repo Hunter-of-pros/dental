@@ -4,7 +4,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Root Canal Treatment",
-  heroImage: "/images/premium/root-canal.png",
+  heroImage: "/images/premium/RCT.gif",
   beforeImage: rootBefore,
   afterImage: rootAfter,
   tagline: "Save your natural tooth and relieve pain with a safe, effective root canal procedure performed by expert endodontists.",

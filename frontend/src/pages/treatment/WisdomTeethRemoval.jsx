@@ -6,7 +6,7 @@ import wisdomAfter from '../../assets/wafter.jpg'
 
 const data = {
   name: "Wisdom Teeth Removal",
-  heroImage: "/images/premium/dental-implant.png",
+  heroImage: "/images/premium/Wisdom-Tooth-1.gif",
   beforeImage: wisdomBefore,
   afterImage: wisdomAfter,
   tagline: "Painless, expert extraction of impacted or problematic wisdom teeth with fast healing and complete aftercare support.",

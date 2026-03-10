@@ -3,7 +3,7 @@ import TreatmentPage from '../../components/TreatmentPage';
 
 const data = {
   name: "Dentures",
-  heroImage: "/images/premium/teeth-whitening.png",
+  heroImage: "/images/premium/Dentures.gif",
   beforeImage: "",
   afterImage: "",
   tagline: "Restore your smile and chewing ability with custom-fitted, comfortable dentures designed to look and feel natural.",
