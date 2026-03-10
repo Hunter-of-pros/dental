@@ -182,30 +182,10 @@ const CountUp = ({ target, suffix = '', duration = 2 }) => {
    MAGNETIC BUTTON — gesture-based
 ───────────────────────────────────────────────────────────────────────────── */
 const MagneticBtn = ({ children, className = '', to }) => {
-  const ref = useRef(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 200, damping: 20 });
-  const springY = useSpring(y, { stiffness: 200, damping: 20 });
-
-  const handleMouse = (e) => {
-    const rect = ref.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    x.set((e.clientX - cx) * 0.35);
-    y.set((e.clientY - cy) * 0.35);
-  };
-  const reset = () => { x.set(0); y.set(0); };
-
   return (
-    <motion.div
-      ref={ref}
-      style={{ x: springX, y: springY, display: 'inline-block' }}
-      onMouseMove={handleMouse}
-      onMouseLeave={reset}
-    >
+    <div style={{ display: 'inline-block' }}>
       <Link to={to} className={className}>{children}</Link>
-    </motion.div>
+    </div>
   );
 };
 
@@ -360,9 +340,7 @@ const Home = () => {
   const heroTextY = useTransform(heroScroll, [0, 1], ['0%', '25%']);
   const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0]);
 
-  /* Horizontal scroll for treatments */
-  const hScrollRef = useRef(null);
-  useScroll({ container: hScrollRef });
+  /* Horizontal scroll for treatments removed as it was unused and causing a console warning */
 
   /* Filter tabs — Layout Animation */
   const [activeFilter, setActiveFilter] = useState('All');
@@ -384,7 +362,7 @@ const Home = () => {
   const whyImgY = useTransform(whyScroll, [0, 1], ['-10%', '10%']);
 
   return (
-    <div className="bg-white overflow-x-hidden dm">
+    <div className="relative bg-white overflow-x-hidden dm">
       <GlobalStyles />
 
       {/* Custom Cursor */}

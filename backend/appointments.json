@@ -106,5 +106,32 @@
     "treatment": "Consultation",
     "clinic": "Mumbai",
     "timestamp": "2026-03-10T15:27:16.232Z"
+  },
+  {
+    "name": "wakai",
+    "email": "abc@gmail.com",
+    "phone": "89",
+    "date": "2026-03-25",
+    "treatment": "Root Canal",
+    "clinic": "Mumbai Main Branch",
+    "timestamp": "2026-03-10T15:30:04.574Z"
+  },
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "phone": "1234567890",
+    "date": "2026-03-10",
+    "treatment": "Consultation",
+    "clinic": "Mumbai",
+    "timestamp": "2026-03-10T15:33:41.941Z"
+  },
+  {
+    "name": "VikasM-90d",
+    "email": "abc@gmail.com",
+    "phone": "89",
+    "date": "2026-03-20",
+    "treatment": "Teeth Whitening",
+    "clinic": "Mumbai Main Branch",
+    "timestamp": "2026-03-10T15:34:55.014Z"
   }
 ]
