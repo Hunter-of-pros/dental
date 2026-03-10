@@ -26,9 +26,14 @@ const Footer = () => {
               Experience world-class dental care with our team of specialists. We blend advanced technology with a gentle touch to give you the smile you deserve.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all text-slate-400 hover:text-white">
-                  <Icon size={18} />
+              {[
+                { Icon: Facebook, label: "Facebook" },
+                { Icon: Instagram, label: "Instagram" },
+                { Icon: Twitter, label: "Twitter" },
+                { Icon: Linkedin, label: "LinkedIn" }
+              ].map(({ Icon, label }, i) => (
+                <a key={i} href="#" aria-label={label} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all text-slate-400 hover:text-white">
+                  <Icon size={18} aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -36,7 +41,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-8 fraunces">Quick Links</h4>
+            <h3 className="text-lg font-bold mb-8 fraunces">Quick Links</h3>
             <ul className="space-y-4">
               {[
                 { name: 'Home', path: '/' },
@@ -57,7 +62,7 @@ const Footer = () => {
 
           {/* Treatments */}
           <div>
-            <h4 className="text-lg font-bold mb-8 fraunces">Treatments</h4>
+            <h3 className="text-lg font-bold mb-8 fraunces">Treatments</h3>
             <ul className="space-y-4">
               {[
                 { name: 'Teeth Whitening', path: '/treatment/teeth-whitening' },
@@ -78,14 +83,14 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold mb-8 fraunces">Contact Us</h4>
+            <h3 className="text-lg font-bold mb-8 fraunces">Contact Us</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-500 shrink-0">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">Call Anytime</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Call Anytime</div>
                   <a href="tel:18001200322" className="text-sm font-semibold hover:text-blue-400 transition-colors">1800-1200-322</a>
                 </div>
               </div>
@@ -94,7 +99,7 @@ const Footer = () => {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">Email Us</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Email Us</div>
                   <a href="mailto:care@clovedental.in" className="text-sm font-semibold hover:text-blue-400 transition-colors">care@clovedental.in</a>
                 </div>
               </div>
@@ -103,7 +108,7 @@ const Footer = () => {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">Main Office</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Main Office</div>
                   <p className="text-sm font-semibold text-slate-400">New Delhi, India</p>
                 </div>
               </div>
@@ -112,13 +117,13 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-xs">
+          <p className="text-slate-400 text-xs">
             © {currentYear} Clove Dental. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <a href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
-            <a href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
-            <a href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Cancellation Policy</a>
+            <a href="#" className="text-slate-400 hover:text-white text-xs transition-colors">Privacy Policy</a>
+            <a href="#" className="text-slate-400 hover:text-white text-xs transition-colors">Terms of Service</a>
+            <a href="#" className="text-slate-400 hover:text-white text-xs transition-colors">Cancellation Policy</a>
           </div>
         </div>
       </div>

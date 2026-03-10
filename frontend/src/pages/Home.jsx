@@ -382,6 +382,7 @@ const Home = () => {
           <img
             src="/images/premium/hero.png"
             alt=""
+            width="1920" height="1080" fetchPriority="high" aria-hidden="true"
             className="w-full h-full object-cover opacity-50 mix-blend-screen"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#060e1f] via-[#060e1f]/85 to-[#060e1f]/40" />
@@ -482,6 +483,7 @@ const Home = () => {
               <img
                 src="/images/premium/hero.png"
                 alt="Dental treatment"
+                width="600" height="750" fetchPriority="high"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#060e1f]/60 via-transparent to-transparent" />
@@ -506,7 +508,7 @@ const Home = () => {
               whileHover={{ scale: 1.05, rotate: 1 }}
             >
               <p className="fraunces text-2xl font-bold text-white">700+</p>
-              <p className="text-blue-200 text-xs">Clinics in India</p>
+              <p className="text-white font-medium text-xs">Clinics in India</p>
             </motion.div>
           </motion.div>
         </div>
@@ -643,9 +645,9 @@ const Home = () => {
             </h2>
           </div>
           <Reveal direction="left" delay={0.2}>
-            <Link to="/treatment" className="group flex items-center gap-2 text-gray-700 font-medium text-sm border-b border-gray-300 pb-1 hover:border-blue-500 hover:text-blue-600 transition-all self-end">
+            <Link to="/treatment" aria-label="View all treatments" className="group flex items-center gap-2 text-gray-700 font-medium text-sm border-b border-gray-300 pb-1 hover:border-blue-500 hover:text-blue-600 transition-all self-end">
               View all
-              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>→</motion.span>
+              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.4, repeat: Infinity }} aria-hidden="true">→</motion.span>
             </Link>
           </Reveal>
         </div>
@@ -697,7 +699,7 @@ const Home = () => {
                   <TiltCard className="tc-wrap group block rounded-3xl overflow-hidden bg-white border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-500 cursor-pointer h-full">
                     <Link to={t.path} className="block h-full">
                       <div className="aspect-[16/10] overflow-hidden">
-                        <img src={t.img} alt={t.name} className="tc-img w-full h-full object-cover" />
+                        <img src={t.img} alt={t.name} width="700" height="437" loading="lazy" className="tc-img w-full h-full object-cover" />
                       </div>
                       <div className="p-6 flex items-center justify-between">
                         <div>
@@ -732,6 +734,7 @@ const Home = () => {
                 <img
                   src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&q=85"
                   alt="Clove clinic"
+                  width="700" height="500" loading="lazy"
                   className="w-full h-full object-cover rounded-3xl shadow-2xl"
                 />
               </Reveal>
@@ -744,6 +747,7 @@ const Home = () => {
                 <img
                   src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=700&q=85"
                   alt="Clove dentist"
+                  width="700" height="500" loading="lazy"
                   className="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white"
                 />
               </Reveal>
@@ -859,13 +863,13 @@ const Home = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                    <p className="text-gray-400 text-xs">{t.city}</p>
+                    <p className="text-gray-500 text-xs">{t.city}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
-          <p className="text-center text-gray-400 text-xs mt-6 tracking-wide">← Drag to explore →</p>
+          <p className="text-center text-gray-500 text-xs mt-6 tracking-wide">← Drag to explore →</p>
         </div>
       </section>
 
@@ -879,6 +883,7 @@ const Home = () => {
           <img
             src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=70"
             alt=""
+            width="1800" height="1200" loading="lazy" aria-hidden="true"
             className="w-full h-full object-cover opacity-15"
           />
         </motion.div>

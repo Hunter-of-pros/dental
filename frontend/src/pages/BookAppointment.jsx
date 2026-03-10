@@ -59,7 +59,7 @@ const BookAppointment = () => {
           <div className="relative z-10 h-full flex flex-col justify-between">
             <div>
               <h2 className="fraunces text-5xl font-bold mb-6">Expert Care. <br/>Zero Wait.</h2>
-              <p className="text-blue-100 text-lg leading-relaxed max-w-sm">
+              <p className="text-white font-medium text-lg leading-relaxed max-w-sm">
                 Join over 1 million happy patients. Schedule your premium consultation today and experience modern dentistry at its finest.
               </p>
             </div>

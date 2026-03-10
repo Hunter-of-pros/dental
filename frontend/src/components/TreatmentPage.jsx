@@ -169,7 +169,7 @@ const TreatmentPage = ({ treatment }) => {
             {treatment.symptoms.map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex items-start gap-4">
                 <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
-                  <span className="text-blue-600 font-bold text-sm">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-blue-700 font-bold text-sm">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">{s}</p>
               </div>
@@ -236,7 +236,7 @@ const TreatmentPage = ({ treatment }) => {
       <section className="bg-blue-600 py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
-          <p className="text-blue-100 mb-8 text-lg">Book a consultation with our expert dentists at a clinic near you.</p>
+          <p className="text-white font-medium mb-8 text-lg">Book a consultation with our expert dentists at a clinic near you.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/book-appointment"

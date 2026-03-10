@@ -155,9 +155,9 @@ const Treatment = () => {
                   {t.tag}
                 </span>
               </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+              <h2 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
                 {t.name}
-              </h3>
+              </h2>
               <p className="text-gray-500 text-sm leading-relaxed flex-1">{t.info}</p>
               <div className="mt-5 flex items-center text-blue-600 text-sm font-semibold gap-1 group-hover:gap-2 transition-all">
                 Learn More <ArrowRight size={15} />
@@ -171,7 +171,7 @@ const Treatment = () => {
       <section className="bg-blue-600 py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Not Sure Which Treatment You Need?</h2>
-          <p className="text-blue-100 mb-8 text-lg">Book a free consultation and let our experts guide you.</p>
+          <p className="text-white font-medium mb-8 text-lg">Book a free consultation and let our experts guide you.</p>
           <Link
             to="/book-appointment"
             className="bg-white text-blue-600 font-bold px-10 py-4 rounded-full hover:bg-blue-50 transition-all shadow-lg text-sm uppercase tracking-wide inline-block"

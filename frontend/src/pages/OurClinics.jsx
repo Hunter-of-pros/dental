@@ -59,7 +59,7 @@ const OurClinics = () => {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-3.5 rounded-xl border border-blue-100 text-blue-600 font-bold text-sm hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl border border-blue-100 text-blue-700 font-bold text-sm hover:bg-blue-700 hover:text-white transition-colors flex items-center justify-center gap-2"
               >
                 Book Here <ArrowRight size={16} />
               </motion.button>
