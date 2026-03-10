@@ -70,6 +70,8 @@ const Navbar = () => {
               className="h-8 md:h-10 w-auto"
               src="https://clovecontent.s3.ap-south-1.amazonaws.com/All/2025/04/logo_final.svg"
               alt="Clove Dental Logo"
+              width="160"
+              height="40"
             />
           </Link>
 
