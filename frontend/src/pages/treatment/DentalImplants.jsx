@@ -1,11 +1,13 @@
 import React from 'react';
 import TreatmentPage from '../../components/TreatmentPage';
+import implantsBefore from '../../assets/implantbefore.jpeg';
+import implantsAfter from '../../assets/implantafter.jpeg';
 
 const data = {
   name: "Dental Implants",
   heroImage: "/images/premium/dental-implant.png",
-  beforeImage: "",
-  afterImage: "",
+  beforeImage: implantsBefore,
+  afterImage: implantsAfter,
   tagline: "Replace missing teeth permanently with titanium implants that look, feel, and function exactly like natural teeth.",
   stats: [
     { value: "98%", label: "Success Rate" },
