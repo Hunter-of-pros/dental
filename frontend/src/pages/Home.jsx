@@ -230,15 +230,15 @@ const stats = [
 ];
 
 const treatments = [
-  { name: 'Root Canal',       desc: 'Save your natural tooth. Eliminate pain quickly.',        img: '/images/premium/RCT.gif', path: '/treatment/root-canal' },
-  { name: 'Dental Implants',  desc: 'Permanent & natural-looking tooth replacements.',          img: '/images/premium/Dental-Implants.gif', path: '/treatment/dental-implants' },
-  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter through safe treatment.',        img: '/images/premium/teeth-whitening.png', path: '/treatment/teeth-whitening' },
-  { name: 'Braces & Aligners',desc: 'Straight teeth, customized treatment for you.',               img: '/images/premium/Braces-2.gif', path: '/treatment/braces-aligners' },
-  { name: 'Crown & Bridge',   desc: 'Restore damaged teeth with durable caps.',               img: '/images/premium/Crowns.gif', path: '/treatment/crown-bridge' },
-  { name: 'Dentures',         desc: 'Custom full or partial replacement teeth.',              img: '/images/premium/Dentures.gif', path: '/treatment/dentures' },
-  { name: 'Tooth Filling',    desc: 'Treat cavities with invisible composites.',              img: '/images/premium/Dental-Fillings-1-1.gif', path: '/treatment/tooth-filling' },
-  { name: 'Wisdom Teeth',     desc: 'Painless extraction with fast recovery.',                img: '/images/premium/Wisdom-Tooth-1.gif', path: '/treatment/wisdom-teeth-removal' },
-  { name: 'Gum Surgery',      desc: 'Healthy gums and a strong foundation.',                  img: '/images/premium/Gum-Treatment.gif', path: '/treatment/gum-surgery' },
+  { name: 'Root Canal',       desc: 'Save your natural tooth. Eliminate pain quickly.',        img: '/images/premium/RCT.webp', path: '/treatment/root-canal' },
+  { name: 'Dental Implants',  desc: 'Permanent & natural-looking tooth replacements.',          img: '/images/premium/Dental-Implants.webp', path: '/treatment/dental-implants' },
+  { name: 'Teeth Whitening',  desc: 'Up to 8 shades brighter through safe treatment.',        img: '/images/premium/teeth-whitening.webp', path: '/treatment/teeth-whitening' },
+  { name: 'Braces & Aligners',desc: 'Straight teeth, customized treatment for you.',               img: '/images/premium/Braces-2.webp', path: '/treatment/braces-aligners' },
+  { name: 'Crown & Bridge',   desc: 'Restore damaged teeth with durable caps.',               img: '/images/premium/Crowns.webp', path: '/treatment/crown-bridge' },
+  { name: 'Dentures',         desc: 'Custom full or partial replacement teeth.',              img: '/images/premium/Dentures.webp', path: '/treatment/dentures' },
+  { name: 'Tooth Filling',    desc: 'Treat cavities with invisible composites.',              img: '/images/premium/Dental-Fillings-1-1.webp', path: '/treatment/tooth-filling' },
+  { name: 'Wisdom Teeth',     desc: 'Painless extraction with fast recovery.',                img: '/images/premium/Wisdom-Tooth-1.webp', path: '/treatment/wisdom-teeth-removal' },
+  { name: 'Gum Surgery',      desc: 'Healthy gums and a strong foundation.',                  img: '/images/premium/Gum-Treatment.webp', path: '/treatment/gum-surgery' },
   { name: 'Veneers',          desc: 'Transform your smile with porcelain shells.',           img: 'https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=700&q=80', path: '/treatment/veneers' },
   { name: 'Tooth Extraction', desc: 'Safe removal of problematic or damaged teeth.',         img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=700&q=80', path: '/treatment/tooth-extraction' },
   { name: 'Jaw Surgery',      desc: 'Correct alignment and bite problems precisely.',        img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=80', path: '/treatment/jaw-surgery' },
@@ -387,7 +387,7 @@ const Home = () => {
         {/* Deep parallax background */}
         <motion.div className="absolute inset-0" style={{ y: heroBgY }}>
           <img
-            src="/images/premium/hero.png"
+            src="/images/premium/hero.webp"
             alt=""
             width="1920" height="1080" fetchPriority="high" aria-hidden="true"
             className="w-full h-full object-cover opacity-50 mix-blend-screen"
@@ -488,7 +488,7 @@ const Home = () => {
           >
             <TiltCard className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
               <img
-                src="/images/premium/hero.png"
+                src="/images/premium/hero.webp"
                 alt="Dental treatment"
                 width="600" height="750" fetchPriority="high"
                 className="w-full h-full object-cover"
@@ -691,7 +691,7 @@ const Home = () => {
           {/* Grid with layout animations */}
           <motion.div
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
           >
             <AnimatePresence mode="popLayout">
               {filterMap[activeFilter].map((t, i) => (
@@ -768,7 +768,7 @@ const Home = () => {
               whileHover={{ scale: 1.08 }}
             >
               <p className="fraunces text-3xl font-bold">25+</p>
-              <p className="text-blue-200 text-xs mt-0.5">Years of trusted care</p>
+              <p className="text-white text-xs mt-0.5">Years of trusted care</p>
             </motion.div>
 
             {/* Second floating badge */}
@@ -778,7 +778,7 @@ const Home = () => {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
             >
               <p className="fraunces text-xl font-bold text-gray-900">1M+</p>
-              <p className="text-gray-400 text-xs">Patients treated</p>
+              <p className="text-gray-600 text-xs">Patients treated</p>
             </motion.div>
           </div>
 
