@@ -143,10 +143,15 @@ const BookAppointment = () => {
               <button 
                 type="submit" 
                 disabled={loading}
-                className="w-full bg-blue-600 text-white font-semibold py-4 rounded-xl hover:bg-blue-700 transition flex items-center justify-center gap-2 disabled:opacity-70"
+                className="w-full bg-blue-600 text-white font-semibold h-[56px] rounded-xl hover:bg-blue-700 transition flex items-center justify-center gap-2 disabled:opacity-70 relative"
               >
-                {loading ? 'Processing Request...' : (
-                  <>Book Appointment <Send size={18} /></>
+                <span className={`flex items-center gap-2 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+                  Book Appointment <Send size={18} />
+                </span>
+                {loading && (
+                  <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    Processing Request...
+                  </span>
                 )}
               </button>
               <p className="text-center text-xs text-gray-400 mt-4">By booking, you agree to our Terms of Service and Privacy Policy.</p>

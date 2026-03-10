@@ -58,7 +58,29 @@ app.post('/api/book', async (req, res) => {
           </div>
         `
       });
-      console.log('Resend Response:', data);
+      console.log('Clinic Owner Email Response:', data);
+
+      try {
+        // Attempt to email the patient as well.
+        if (email && email !== 'vikasm8660@gmail.com') {
+          await resend.emails.send({
+            from: 'dental <onboarding@resend.dev>',
+            to: [email],
+            subject: `We received your booking request, ${name}!`,
+            html: `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2>Thanks for choosing us, ${name}!</h2>
+                    <p>We have successfully received your request for an appointment on <strong>${date}</strong>.</p>
+                    <p>Our scheduling team will call you at <strong>${phone}</strong> shortly to confirm the exact time of your visit.</p>
+                    <br/>
+                    <p>Best Regards,</p>
+                    <p>Dental Clinic Team</p>
+                   </div>`
+          });
+        }
+      } catch (patientErr) {
+        console.log("Could not send patient email (Resend Sandbox Restriction):", patientErr.message);
+      }
+
       res.status(200).json({ success: true, message: 'Appointment booked successfully!', data });
     } catch (emailError) {
        console.error("Resend Error:", emailError);
