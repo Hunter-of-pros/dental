@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ReactLenis } from 'lenis/react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Lazy loading pages
 const Home = lazy(() => import('./pages/Home'));
@@ -68,6 +69,7 @@ const App = () => {
           </Routes>
         </Suspense>
         <Footer />
+        <SpeedInsights />
       </div>
     </ReactLenis>
   );
