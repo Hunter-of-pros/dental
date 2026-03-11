@@ -12,10 +12,7 @@ export default async function handler(req, res) {
     const { name, email, phone, date, treatment, clinic } = req.body;
     console.log('Received booking request:', req.body);
 
-    // Respond immediately
-    res.status(200).json({ success: true, message: 'Appointment booked successfully!' });
-
-    // Send emails in the background
+    // Send emails BEFORE responding so Vercel doesn't kill the function early
     try {
       await resend.emails.send({
         from: 'dental <onboarding@resend.dev>',
@@ -52,12 +49,15 @@ export default async function handler(req, res) {
                   </div>`
           });
         } catch (patientErr) {
-          console.log("Could not send patient email:", patientErr.message);
+          console.log("Could not send patient email (Resend Sandbox Restriction):", patientErr.message);
         }
       }
     } catch (emailError) {
       console.error("Resend Error:", emailError);
     }
+
+    // Now respond after emails are sent
+    res.status(200).json({ success: true, message: 'Appointment booked successfully!' });
 
   } catch (error) {
     console.error('Error processing booking:', error);
