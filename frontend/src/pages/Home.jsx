@@ -78,10 +78,7 @@ const treatments = [
   { name: 'Tooth Filling',    desc: 'Treat cavities with invisible composites.',              img: '/images/premium/Dental-Fillings-1-1.webp', path: '/treatment/tooth-filling' },
   { name: 'Wisdom Teeth',     desc: 'Painless extraction with fast recovery.',                img: '/images/premium/Wisdom-Tooth-1.webp', path: '/treatment/wisdom-teeth-removal' },
   { name: 'Gum Surgery',      desc: 'Healthy gums and a strong foundation.',                  img: '/images/premium/Gum-Treatment.webp', path: '/treatment/gum-surgery' },
-  { name: 'Veneers',          desc: 'Transform your smile with porcelain shells.',           img: 'https://images.unsplash.com/photo-1599824633857-897dbfc7ae17?w=700&q=80', path: '/treatment/veneers' },
   { name: 'Tooth Extraction', desc: 'Safe removal of problematic or damaged teeth.',         img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=700&q=80', path: '/treatment/tooth-extraction' },
-  { name: 'Jaw Surgery',      desc: 'Correct alignment and bite problems precisely.',        img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=80', path: '/treatment/jaw-surgery' },
-  { name: 'Bone Grafting',    desc: 'Rebuild lost jawbone safely for implants.',             img: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&q=80', path: '/treatment/bone-grafting' },
 ];
 
 const whyUs = [
@@ -97,7 +94,7 @@ const testimonials = [
   { name: 'Sneha Iyer',   city: 'Chennai',   text: 'The clear aligners changed my confidence entirely. Results came faster than expected.', rating: 5 },
 ];
 
-const marqueeItems = ['Root Canal Treatment','Dental Implants','Teeth Whitening','Braces & Aligners','Veneers','Gum Surgery','Wisdom Teeth Removal','Bone Grafting','Tooth Filling','Dentures'];
+const marqueeItems = ['Root Canal Treatment','Dental Implants','Teeth Whitening','Braces & Aligners','Gum Surgery','Wisdom Teeth Removal','Tooth Filling','Dentures'];
 
 /* ─── HOME PAGE ─────────────────────────────────────────────────────────── */
 const Home = () => {
@@ -105,7 +102,7 @@ const Home = () => {
   const filters = ['All', 'Cosmetic', 'Restorative', 'Surgical'];
   const filterMap = {
     All:        treatments,
-    Cosmetic:   treatments.filter(t => ['Teeth Whitening','Veneers'].includes(t.name)),
+    Cosmetic:   treatments.filter(t => ['Teeth Whitening'].includes(t.name)),
     Restorative:treatments.filter(t => ['Root Canal','Dental Implants'].includes(t.name)),
     Surgical:   treatments.filter(t => ['Gum Surgery','Braces & Aligners'].includes(t.name)),
   };

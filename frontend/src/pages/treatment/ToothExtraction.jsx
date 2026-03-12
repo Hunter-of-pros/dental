@@ -6,7 +6,7 @@ import extractionBefore from '../../assets/extractionbefore.jpeg';
 
 const data = {
   name: "Tooth Extraction",
-  heroImage: "/images/premium/dental-implant.png",
+  heroImage: "/images/premium/Wisdom-Tooth-1.gif",
   beforeImage: extractionBefore,
   afterImage: extractionAfter,
   tagline: "Safe, painless tooth removal performed by expert dentists with comprehensive aftercare for a smooth, quick recovery.",

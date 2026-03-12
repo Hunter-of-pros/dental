@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ReactLenis } from 'lenis/react';
@@ -24,11 +25,8 @@ const BracesAligners = lazy(() => import('./pages/treatment/BracesAligners'));
 const CrownBridge = lazy(() => import('./pages/treatment/CrownBridge'));
 const Dentures = lazy(() => import('./pages/treatment/Dentures'));
 const ToothFilling = lazy(() => import('./pages/treatment/ToothFilling'));
-const Veneers = lazy(() => import('./pages/treatment/Veneers'));
 const ToothExtraction = lazy(() => import('./pages/treatment/ToothExtraction'));
 const GumSurgery = lazy(() => import('./pages/treatment/GumSurgery'));
-const JawSurgery = lazy(() => import('./pages/treatment/JawSurgery'));
-const BoneGrafting = lazy(() => import('./pages/treatment/BoneGrafting'));
 
 // Loading Fallback Spinner
 const LoadingScreen = () => (
@@ -41,6 +39,7 @@ const App = () => {
   return (
     <ReactLenis root>
       <div>
+        <ScrollToTop />
         <Navbar />
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
@@ -61,11 +60,8 @@ const App = () => {
             <Route path="/treatment/crown-bridge" element={<CrownBridge />} />
             <Route path="/treatment/dentures" element={<Dentures />} />
             <Route path="/treatment/tooth-filling" element={<ToothFilling />} />
-            <Route path="/treatment/veneers" element={<Veneers />} />
             <Route path="/treatment/tooth-extraction" element={<ToothExtraction />} />
             <Route path="/treatment/gum-surgery" element={<GumSurgery />} />
-            <Route path="/treatment/jaw-surgery" element={<JawSurgery />} />
-            <Route path="/treatment/bone-grafting" element={<BoneGrafting />} />
           </Routes>
         </Suspense>
         <Footer />

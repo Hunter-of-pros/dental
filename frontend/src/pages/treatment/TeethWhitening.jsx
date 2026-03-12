@@ -5,7 +5,7 @@ import whiteAfter from '../../assets/whiteafter.png';
 
 const data = {
   name: "Teeth Whitening",
-  heroImage: "/images/premium/teeth-whitening.png",
+  heroImage: "/images/premium/teeth-whitening.webp",
   beforeImage: whiteBefore,
   afterImage: whiteAfter,
   tagline: "Brighten your smile by several shades with safe, clinically proven professional teeth whitening at Clove Dental.",

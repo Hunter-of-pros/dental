@@ -19,92 +19,71 @@ const treatments = [
   {
     name: "Root Canal Treatment",
     path: "/treatment/root-canal",
-    icon: <Stethoscope size={28} />,
+    icon: <img src="/images/premium/RCT.gif" alt="Root Canal" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Remove infection, save your natural tooth and relieve pain in just 1–2 sittings.",
     tag: "Most Common",
   },
   {
     name: "Teeth Whitening",
     path: "/treatment/teeth-whitening",
-    icon: <Sparkles size={28} />,
+    icon: <img src="/images/premium/teeth-whitening.webp" alt="Teeth Whitening" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Brighten your smile by up to 8 shades with safe, clinically proven whitening.",
     tag: "Cosmetic",
   },
   {
     name: "Wisdom Teeth Removal",
     path: "/treatment/wisdom-teeth-removal",
-    icon: <Trash2 size={28} />,
+    icon: <img src="/images/premium/Wisdom-Tooth-1.gif" alt="Wisdom Teeth Removal" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Painless removal of impacted or problematic wisdom teeth with fast recovery.",
     tag: "Surgical",
   },
   {
     name: "Dental Implants",
     path: "/treatment/dental-implants",
-    icon: <Zap size={28} />,
+    icon: <img src="/images/premium/Dental-Implants.gif" alt="Dental Implants" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Permanent, natural-looking tooth replacement using Swiss-grade titanium implants.",
     tag: "Permanent Fix",
   },
   {
     name: "Braces & Aligners",
     path: "/treatment/braces-aligners",
-    icon: <Smile size={28} />,
+    icon: <img src="/images/premium/Braces-2.gif" alt="Braces & Aligners" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Straighten teeth with traditional braces or discreet clear aligners.",
     tag: "Orthodontics",
   },
   {
     name: "Dental Crown & Bridge",
     path: "/treatment/crown-bridge",
-    icon: <Crown size={28} />,
+    icon: <img src="/images/premium/Crowns.gif" alt="Crown & Bridge" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Restore damaged or missing teeth with durable, natural-looking crowns and bridges.",
     tag: "Restorative",
   },
   {
     name: "Dentures",
     path: "/treatment/dentures",
-    icon: <Smile size={28} />,
+    icon: <img src="/images/premium/Dentures.gif" alt="Dentures" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Custom-fitted full or partial dentures that restore your smile and chewing ability.",
     tag: "Restorative",
   },
   {
     name: "Tooth Filling",
     path: "/treatment/tooth-filling",
-    icon: <Activity size={28} />,
+    icon: <img src="/images/premium/Dental-Fillings-1-1.gif" alt="Tooth Filling" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Treat cavities quickly with invisible, tooth-coloured composite fillings.",
     tag: "Preventive",
   },
   {
-    name: "Veneers",
-    path: "/treatment/veneers",
-    icon: <Sparkles size={28} className="text-amber-400" />,
-    info: "Ultra-thin porcelain shells that transform the colour, shape and size of your teeth.",
-    tag: "Cosmetic",
-  },
-  {
     name: "Tooth Extraction",
     path: "/treatment/tooth-extraction",
-    icon: <Scissors size={28} />,
+    icon: <img src="/images/premium/Wisdom-Tooth-1.gif" alt="Tooth Extraction" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Safe, painless removal of severely damaged or problematic teeth with expert care.",
     tag: "Surgical",
   },
   {
     name: "Gum Surgery",
     path: "/treatment/gum-surgery",
-    icon: <Scaling size={28} />,
+    icon: <img src="/images/premium/Gum-Treatment.gif" alt="Gum Surgery" className="w-[40px] h-[40px] object-cover rounded-md" />,
     info: "Treat advanced gum disease and restore healthy gums with periodontal surgery.",
-    tag: "Surgical",
-  },
-  {
-    name: "Jaw Surgery",
-    path: "/treatment/jaw-surgery",
-    icon: <MoveHorizontal size={28} />,
-    info: "Correct jaw alignment and bite problems with precise orthognathic surgery.",
-    tag: "Surgical",
-  },
-  {
-    name: "Bone Grafting",
-    path: "/treatment/bone-grafting",
-    icon: <Binary size={28} />,
-    info: "Rebuild lost jawbone to prepare for implants and restore facial structure.",
     tag: "Surgical",
   },
 ];
@@ -148,7 +127,7 @@ const Treatment = () => {
               className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-200 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                <div className="w-14 h-14 bg-blue-50/50 rounded-2xl flex items-center justify-center p-1 group-hover:scale-110 transition-transform duration-300">
                   {t.icon}
                 </div>
                 <span className={`text-xs font-semibold px-3 py-1 rounded-full ${tagColors[t.tag]}`}>

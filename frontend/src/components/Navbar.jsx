@@ -25,11 +25,8 @@ const treatments = [
   { label: "Dental Crown & Bridge", path: "/treatment/crown-bridge", icon: <Crown size={16} /> },
   { label: "Dentures", path: "/treatment/dentures", icon: <Smile size={16} /> },
   { label: "Tooth Filling", path: "/treatment/tooth-filling", icon: <Activity size={16} /> },
-  { label: "Veneers", path: "/treatment/veneers", icon: <Sparkles size={16} className="text-amber-500" /> },
   { label: "Tooth Extraction", path: "/treatment/tooth-extraction", icon: <Scissors size={16} /> },
   { label: "Gum Surgery", path: "/treatment/gum-surgery", icon: <Scaling size={16} /> },
-  { label: "Jaw Surgery", path: "/treatment/jaw-surgery", icon: <MoveHorizontal size={16} /> },
-  { label: "Bone Grafting", path: "/treatment/bone-grafting", icon: <Binary size={16} /> },
 ];
 
 const Navbar = () => {
@@ -109,7 +106,7 @@ const Navbar = () => {
                 }`}
                 style={{ zIndex: 100 }}
               >
-                <ul className="overflow-y-auto max-h-80 py-2 px-2 space-y-0.5 custom-scrollbar">
+                <ul className="overflow-y-auto max-h-80 py-2 px-2 space-y-0.5 custom-scrollbar overscroll-contain">
                   {treatments.map((item) => (
                     <li key={item.path}>
                       <Link
