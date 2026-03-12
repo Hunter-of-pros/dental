@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
+import ricon from '../assets/ricon.webp';
 import { 
   Menu, X, Phone, 
   Stethoscope, 
@@ -16,7 +17,7 @@ import {
 } from 'lucide-react';
 
 const treatments = [
-  { label: "Root Canal Treatment", path: "/treatment/root-canal", icon: <Stethoscope size={16} /> },
+  { label: "Root Canal Treatment", path: "/treatment/root-canal", icon: <img src={ricon} alt="Root Canal" className="w-[20px] h-[20px] object-contain object-center rounded-full border border-blue-600 p-[2px]" /> },
   { label: "Teeth Whitening", path: "/treatment/teeth-whitening", icon: <Sparkles size={16} /> },
   { label: "Wisdom Teeth Removal", path: "/treatment/wisdom-teeth-removal", icon: <Trash2 size={16} /> },
   { label: "Dental Implants", path: "/treatment/dental-implants", icon: <Zap size={16} /> },
