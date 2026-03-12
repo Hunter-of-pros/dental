@@ -31,7 +31,9 @@ const Footer = () => {
                 { Icon: Instagram, label: "Instagram" },
                 { Icon: Twitter, label: "Twitter" },
                 { Icon: Linkedin, label: "LinkedIn" }
-              ].map(({ Icon, label }, i) => (
+              ].map(
+                // eslint-disable-next-line no-unused-vars
+                ({ Icon, label }, i) => (
                 <a key={i} href="#" aria-label={label} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all text-slate-400 hover:text-white">
                   <Icon size={18} aria-hidden="true" />
                 </a>

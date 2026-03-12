@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, ArrowRight, Instagram, Facebook, Twitter, MessageSquare } from 'lucide-react';
 import { toast } from 'react-toastify';

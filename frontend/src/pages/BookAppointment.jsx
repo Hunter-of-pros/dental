@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, User, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { Calendar, User, Phone, Mail, Clock, Send } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 

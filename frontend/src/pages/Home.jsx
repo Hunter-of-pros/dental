@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 const ReactCompareSlider = React.lazy(() => import('react-compare-slider').then(m => ({ default: m.ReactCompareSlider })));
 const ReactCompareSliderImage = React.lazy(() => import('react-compare-slider').then(m => ({ default: m.ReactCompareSliderImage })));
@@ -18,6 +18,7 @@ const useInView = (options = {}) => {
     }, { threshold: options.threshold || 0.1, rootMargin: options.rootMargin || '0px' });
     obs.observe(el);
     return () => obs.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return [ref, inView];
 };
@@ -29,7 +30,10 @@ const CountUp = ({ target, suffix = '', duration = 2 }) => {
   useEffect(() => {
     if (!inView) return;
     const end = parseInt(target.replace(/\D/g, ''));
-    if (!end) { setCount(target); return; }
+    if (!end) { 
+      const t = setTimeout(() => setCount(target), 0); 
+      return () => clearTimeout(t); 
+    }
     const step = Math.ceil(end / (duration * 60));
     let start = 0;
     const timer = setInterval(() => {
