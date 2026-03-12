@@ -3,36 +3,76 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, User, Phone, Mail } from 'lucide-react';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const ContactPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
 
-  // Show the popup after 5 seconds on the site
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // Check local storage to prevent showing it every single time if already submitted
+    let timer;
+
+    const checkAndShowPopup = () => {
       const hasSubmitted = localStorage.getItem('contactPopupSubmitted');
-      if (!hasSubmitted) {
+      if (!hasSubmitted && !isOpen) {
         setIsOpen(true);
       }
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
+    };
+
+    // Initial delay of 15 seconds
+    const initialTimer = setTimeout(() => {
+      checkAndShowPopup();
+      
+      // After initial trigger, set up the 1-minute recurring interval
+      timer = setInterval(() => {
+        checkAndShowPopup();
+      }, 60000); // 60 seconds
+      
+    }, 15000); // 15 seconds
+
+    return () => {
+      clearTimeout(initialTimer);
+      if (timer) clearInterval(timer);
+    };
+  }, [isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
       toast.error('Name and Phone are required.');
       return;
     }
-    toast.success('Thank you! Our amazing team will contact you shortly.');
-    localStorage.setItem('contactPopupSubmitted', 'true');
-    setIsOpen(false);
+    
+    setLoading(true);
+    try {
+      const payload = {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        date: new Date().toLocaleDateString(),
+        treatment: 'Callback Request',
+        clinic: 'Not Specified - Popup'
+      };
+      
+      const response = await axios.post('/api/book', payload);
+      
+      if (response.data.success) {
+        toast.success('Thank you! Our amazing team will contact you shortly.');
+        localStorage.setItem('contactPopupSubmitted', 'true');
+        setIsOpen(false);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again or call us.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -124,9 +164,17 @@ const ContactPopup = () => {
 
                 <button
                   type="submit"
-                  className="w-full group mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_8px_25px_rgba(37,99,235,0.4)]"
+                  disabled={loading}
+                  className="w-full group mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold h-[56px] rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_8px_25px_rgba(37,99,235,0.4)] disabled:opacity-70 relative"
                 >
-                  Request Callback <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <span className={`flex items-center gap-2 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+                    Request Callback <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </span>
+                  {loading && (
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                      Sending...
+                    </span>
+                  )}
                 </button>
                 <p className="text-center text-[10px] text-gray-400 font-medium mt-3">
                   Your information is strictly confidential. We hate spam.
