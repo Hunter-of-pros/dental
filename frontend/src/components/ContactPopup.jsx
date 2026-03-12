@@ -1,15 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Phone, Mail } from 'lucide-react';
+import { X, Send, User, Phone, Mail, CheckCircle2 } from 'lucide-react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import confetti from 'canvas-confetti';
 
 const ContactPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
 
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const fireConfetti = useCallback(() => {
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 200 };
+    confetti({ ...defaults, particleCount: 80, origin: { x: 0.3, y: 0.5 }, colors: ['#3b82f6', '#bfdbfe', '#ffffff', '#60a5fa'] });
+    confetti({ ...defaults, particleCount: 80, origin: { x: 0.7, y: 0.5 }, colors: ['#3b82f6', '#bfdbfe', '#ffffff', '#60a5fa'] });
+    setTimeout(() => {
+      confetti({ ...defaults, particleCount: 50, origin: { x: 0.5, y: 0.3 }, colors: ['#3b82f6', '#93c5fd', '#dbeafe'] });
+    }, 300);
+  }, []);
 
   useEffect(() => {
     let timer;
@@ -64,9 +75,15 @@ const ContactPopup = () => {
       const response = await axios.post('/api/book', payload);
       
       if (response.data.success) {
-        toast.success('Thank you! Our amazing team will contact you shortly.');
         localStorage.setItem('contactPopupSubmitted', 'true');
-        setIsOpen(false);
+        setSubmitted(true);
+        fireConfetti();
+        
+        // Auto-close the popup after 4 seconds
+        setTimeout(() => {
+          setIsOpen(false);
+          setSubmitted(false);
+        }, 4000);
       }
     } catch (error) {
       console.error(error);
@@ -108,6 +125,36 @@ const ContactPopup = () => {
             </button>
 
             <div className="p-8 sm:p-10 relative z-10">
+              {submitted ? (
+                /* ─── Success View ─── */
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                  className="text-center py-6"
+                >
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1, rotate: [0, -10, 10, 0] }}
+                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                    className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner"
+                  >
+                    <CheckCircle2 size={40} />
+                  </motion.div>
+                  <h2 className="text-3xl font-bold text-gray-900 fraunces mb-3">Submitted Successfully!</h2>
+                  <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">Our dental experts will reach out to you shortly. Thank you for choosing us!</p>
+                  <div className="mt-6 w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                    <motion.div 
+                      initial={{ width: '100%' }}
+                      animate={{ width: '0%' }}
+                      transition={{ duration: 4, ease: 'linear' }}
+                      className="h-full bg-blue-600 rounded-full"
+                    />
+                  </div>
+                </motion.div>
+              ) : (
+                /* ─── Form View ─── */
+                <>
               <div className="mb-8">
                 <span className="inline-block bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
                   Exclusive Offer
@@ -181,6 +228,8 @@ const ContactPopup = () => {
                   Your information is strictly confidential. We hate spam.
                 </p>
               </form>
+              </>
+              )}
             </div>
           </motion.div>
         </div>
