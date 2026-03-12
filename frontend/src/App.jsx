@@ -1,3 +1,4 @@
+// Force Vercel rebuild trigger
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
