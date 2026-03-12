@@ -134,11 +134,11 @@ const ContactPopup = () => {
             className="relative w-full max-w-md overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
           >
             {/* Background design */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[60px] translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[60px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
             <button
               onClick={handleClose}
-              className="absolute top-5 right-5 z-10 p-2 bg-gray-100/80 hover:bg-gray-200 rounded-full text-gray-500 transition-colors"
+              className="absolute top-5 right-5 z-20 p-2 bg-gray-100/80 hover:bg-gray-200 rounded-full text-gray-500 transition-colors cursor-pointer"
             >
               <X size={18} />
             </button>
