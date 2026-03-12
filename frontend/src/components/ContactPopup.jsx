@@ -16,6 +16,7 @@ const ContactPopup = () => {
 
     const checkAndShowPopup = () => {
       const hasSubmitted = localStorage.getItem('contactPopupSubmitted');
+      
       if (!hasSubmitted && !isOpen) {
         setIsOpen(true);
       }
@@ -36,7 +37,7 @@ const ContactPopup = () => {
       clearTimeout(initialTimer);
       if (timer) clearInterval(timer);
     };
-  }, [isOpen]);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
