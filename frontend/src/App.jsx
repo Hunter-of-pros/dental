@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import ContactPopup from './components/ContactPopup';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ReactLenis } from 'lenis/react';
@@ -40,6 +41,7 @@ const App = () => {
     <ReactLenis root>
       <div>
         <ScrollToTop />
+        <ContactPopup />
         <Navbar />
         <Suspense fallback={<LoadingScreen />}>
           <Routes>

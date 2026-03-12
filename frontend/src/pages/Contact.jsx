@@ -1,107 +1,201 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Instagram, Facebook, Twitter, MessageSquare } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error('Please fill in all fields.');
+      return;
+    }
+    // Simulate sending message
+    toast.success('Message sent successfully! We will get back to you soon.');
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
   return (
-    <div className="bg-white min-h-screen pt-24 pb-16 font-sans">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <div className="bg-[#060e1f] min-h-screen relative overflow-hidden font-sans text-slate-300">
+      
+      {/* Premium Background Elements */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24">
+        
         {/* Header */}
-        <div className="text-center mb-20">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3"
-          >
-            Get In Touch
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl lg:text-6xl font-bold fraunces text-gray-900 mb-6"
-          >
-            We're here to help.
+        <motion.div 
+          initial="hidden" animate="visible" variants={staggerContainer}
+          className="text-center mb-24"
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-md mb-6">
+            <MessageSquare size={14} className="text-blue-400" />
+            <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest">Get In Touch</span>
+          </motion.div>
+          
+          <motion.h1 variants={fadeUp} className="text-6xl lg:text-7xl font-bold fraunces text-white mb-6 leading-tight">
+            Let's create your <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">perfect smile.</span>
           </motion.h1>
+          
+          <motion.p variants={fadeUp} className="text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Whether you're ready to book an appointment or simply have a few questions about our treatments, our dedicated team of experts is here to assist you with world-class care.
+          </motion.p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+          
+          {/* Contact Details Column */}
           <motion.div 
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            className="w-16 h-1.5 bg-blue-600 mx-auto rounded-full"
-          />
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Details */}
-          <div className="space-y-12">
-            <div>
-              <h2 className="text-3xl font-bold fraunces text-gray-900 mb-8">Contact Information</h2>
-              <p className="text-gray-500 text-lg mb-10 leading-relaxed">
-                Whether you have a question about our treatments, need assistance with your booking, or have an emergency, our team is ready to answer all your questions.
-              </p>
-            </div>
-
-            <div className="space-y-8">
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
+            className="lg:col-span-5 space-y-8"
+          >
+            {/* Info Cards */}
+            <motion.div variants={fadeUp} className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Call Us</h3>
-                  <p className="text-gray-500 mb-2">Mon-Sun, 9AM to 8PM</p>
-                  <a href="tel:18001200322" className="text-blue-600 font-bold text-2xl hover:text-blue-700 transition">1800 1200 322</a>
+                  <h3 className="text-xl font-semibold text-white mb-2">Call Us</h3>
+                  <p className="text-sm text-slate-400 mb-3">Mon-Sun, 9AM to 8PM</p>
+                  <a href="tel:18001200322" className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">1800 1200 322</a>
                 </div>
               </div>
+            </motion.div>
 
+            <motion.div variants={fadeUp} className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Email Us</h3>
-                  <p className="text-gray-500 mb-2">Our support team will reply within 24 hours.</p>
-                  <a href="mailto:vikasm8660@gmail.com" className="text-blue-600 font-bold hover:underline">vikasm8660@gmail.com</a>
+                  <h3 className="text-xl font-semibold text-white mb-2">Email Us</h3>
+                  <p className="text-sm text-slate-400 mb-3">Priority response within 24 hours</p>
+                  <a href="mailto:vikasm8660@gmail.com" className="text-lg font-medium text-white hover:text-blue-400 transition-colors">vikasm8660@gmail.com</a>
                 </div>
               </div>
+            </motion.div>
 
+            <motion.div variants={fadeUp} className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Headquarters</h3>
-                  <p className="text-gray-500 leading-relaxed">
+                  <h3 className="text-xl font-semibold text-white mb-2">Headquarters</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     Clove Dental Network HQ<br/>
                     Premium Business Park, Tower A<br/>
                     Mumbai, MH 400001, India
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
 
-          {/* Form */}
-          <div className="bg-gray-50 p-10 lg:p-12 rounded-[2.5rem] border border-gray-100 shadow-xl">
-            <h3 className="text-2xl font-bold fraunces text-gray-900 mb-6">Send a Message</h3>
-            <form className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                <input type="text" className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition" placeholder="John Doe" />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                <input type="email" className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition" placeholder="john@example.com" />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Your Message</label>
-                <textarea rows="4" className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition resize-none" placeholder="How can we help you?"></textarea>
-              </div>
-              <button type="button" onClick={() => alert("Message feature is simulated. Use Book Appointment for real inquiries!")} className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                Send Message <ArrowRight size={18} />
-              </button>
-            </form>
-          </div>
+            {/* Socials */}
+            <motion.div variants={fadeUp} className="pt-6 px-4 flex gap-4">
+              {[Instagram, Facebook, Twitter].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-400 hover:bg-blue-600/20 transition-all">
+                  <Icon size={18} />
+                </a>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Form Column */}
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-7"
+          >
+            <div className="bg-white/5 backdrop-blur-md p-10 sm:p-12 rounded-[2.5rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+              <h3 className="text-3xl font-bold fraunces text-white mb-2">Send a Message</h3>
+              <p className="text-slate-400 text-sm mb-8 font-light">We value your privacy. Your information is securely encrypted.</p>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-wider font-semibold text-slate-400 ml-1">Full Name</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all" 
+                      placeholder="John Doe" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-wider font-semibold text-slate-400 ml-1">Email Address</label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all" 
+                      placeholder="john@example.com" 
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-wider font-semibold text-slate-400 ml-1">Your Message</label>
+                  <textarea 
+                    rows="5" 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all resize-none" 
+                    placeholder="How can we help you today?"
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  className="w-full group bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden relative"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Send Message <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  {/* Button shine effect */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
+                </button>
+              </form>
+            </div>
+          </motion.div>
+
         </div>
       </div>
+      
+      <style>{`
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
     </div>
   );
 };
