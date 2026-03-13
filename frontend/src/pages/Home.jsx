@@ -250,18 +250,18 @@ const Home = () => {
         <div className="absolute inset-0 bg-[#f8fafc] w-full h-[60%] -skew-y-2 origin-top-left -z-10" />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <p className="text-blue-600 text-xs uppercase tracking-[0.22em] font-medium mb-3">Real Results</p>
+            <p className="text-blue-600 text-xs uppercase tracking-[0.22em] font-medium mb-3">Proven Transformations</p>
             <h2 className="fraunces text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8">
-              Witness the <em className="text-blue-500 not-italic">transformation.</em>
+              See the <em className="text-blue-500 not-italic">difference.</em>
             </h2>
             <p className="text-slate-500 text-lg leading-relaxed mb-8 max-w-md font-light">
-              Our expert dentists utilize top-tier clinical precision to orchestrate astonishing smile makeovers. Drag the slider to see the difference.
+              From dull to dazzling — our advanced teeth whitening treatments deliver visible results in a single visit. Drag the slider and see for yourself.
             </p>
             <Link
-              to="/treatment/veneers"
+              to="/treatment/teeth-whitening"
               className="inline-block bg-[#060e1f] text-white font-medium px-8 py-3.5 rounded-full text-sm uppercase tracking-wide hover:bg-blue-600 transition-colors"
             >
-              View Veneers
+              Explore Teeth Whitening
             </Link>
           </Reveal>
 
