@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import whiteBefore from '../assets/whitebefore.png';
+import whiteAfter from '../assets/whiteafter.png';
 const ReactCompareSlider = React.lazy(() => import('react-compare-slider').then(m => ({ default: m.ReactCompareSlider })));
 const ReactCompareSliderImage = React.lazy(() => import('react-compare-slider').then(m => ({ default: m.ReactCompareSliderImage })));
 
@@ -143,94 +145,98 @@ const Home = () => {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="/images/premium/hero.webp"
+            src="/images/premium/hero_hormozi.webp"
             alt=""
             width="1920" height="1080" fetchPriority="high" aria-hidden="true"
-            className="w-full h-full object-cover opacity-50 mix-blend-screen"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060e1f] via-[#060e1f]/85 to-[#060e1f]/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#060e1f]/80 via-[#060e1f]/40 to-[#060e1f]/80" />
         </div>
 
-        {/* Decorative orbs — CSS only */}
-        <div className="absolute w-96 h-96 top-10 right-[8%] rounded-full border border-blue-500/15" style={{ animation: 'orb-spin 28s linear infinite' }} />
-        <div className="absolute w-64 h-64 top-24 right-[12%] rounded-full border border-blue-400/10" style={{ animation: 'orb-spin 18s linear infinite reverse' }} />
 
-        {/* Grid lines */}
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 grid lg:grid-cols-2 gap-16 items-center">
+
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 py-32 flex flex-col items-center text-center">
           <div
             style={{
               opacity: heroLoaded ? 1 : 0,
               transform: heroLoaded ? 'translateY(0)' : 'translateY(40px)',
               transition: 'opacity 0.8s ease, transform 0.8s ease',
             }}
+            className="flex flex-col items-center"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="h-px w-8 bg-blue-400" />
-              <span className="text-blue-400 text-xs font-medium uppercase tracking-[0.22em]">
-                India's Most Trusted Dental Chain
+            {/* Social proof bar */}
+            <div className="flex items-center justify-center gap-3 mb-8 bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+              <div className="flex -space-x-2">
+                {['P','A','S','R'].map((letter, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-blue-600 border-2 border-[#060e1f] flex items-center justify-center text-white text-[11px] font-bold shadow-lg">{letter}</div>
+                ))}
+              </div>
+              <span className="text-white text-xs font-semibold uppercase tracking-[0.15em]">
+                Trusted by 10,00,000+ happy patients
               </span>
             </div>
 
-            <h1 className="fraunces text-6xl lg:text-7xl xl:text-[5.5rem] font-bold text-white leading-[1.04] mb-6">
-              Your smile, <em className="grad-text not-italic">perfectly</em> cared for.
+            <h1 className="fraunces text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.04] mb-8">
+              Walk in with tooth pain.<br />
+              Walk out with a <em className="grad-text not-italic">perfect smile.</em>
             </h1>
 
-            <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-md font-light">
-              Expert dental care at 700+ clinics across India — from routine check-ups to life-changing smile transformations.
+            <p className="text-slate-300 text-xl leading-relaxed mb-10 max-w-2xl font-light">
+              Expert specialists. Advanced technology. <strong className="text-white font-semibold">Guaranteed results.</strong> <br className="hidden md:block" />
+              The most trusted dental care in India, now in <strong className="text-white font-semibold">700+ locations.</strong>
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            {/* Benefit bullets — Hormozi stack */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12 w-full max-w-4xl">
+              {[
+                'Same-day treatment. No waiting.',
+                '100% Transparent pricing upfront.',
+                'Painless procedures. Guaranteed.',
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/5 p-4 rounded-2xl hover:bg-white/10 transition-colors">
+                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  </div>
+                  <span className="text-slate-200 text-sm font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col items-center gap-6">
               <Link
                 to="/book-appointment"
-                className="bg-blue-600 text-white font-semibold px-9 py-4 rounded-full text-sm uppercase tracking-wider inline-block hover:bg-blue-500 transition-colors"
+                className="group relative bg-blue-600 text-white font-black px-12 py-6 rounded-2xl text-lg uppercase tracking-widest overflow-hidden hover:bg-blue-500 hover:scale-[1.05] active:scale-95 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.5)]"
               >
-                Book Appointment
+                <span className="relative z-10 flex items-center gap-4">
+                  Get Your Free Consultation
+                  <svg className="w-6 h-6 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </Link>
-              <Link
-                to="/treatment"
-                className="border border-white/25 text-white font-medium px-9 py-4 rounded-full text-sm uppercase tracking-wider inline-block hover:border-white/60 hover:bg-white/5 transition-all"
-              >
-                Explore Treatments
-              </Link>
-            </div>
-          </div>
-
-          {/* Hero image */}
-          <div
-            className="hidden lg:block"
-            style={{
-              opacity: heroLoaded ? 1 : 0,
-              transform: heroLoaded ? 'translateX(0) scale(1)' : 'translateX(80px) scale(0.88)',
-              transition: 'opacity 1s ease 0.3s, transform 1s ease 0.3s',
-            }}
-          >
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
-              <img
-                src="/images/premium/hero.webp"
-                alt="Dental treatment"
-                width="600" height="750" fetchPriority="high"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060e1f]/60 via-transparent to-transparent" />
+              <div className="flex items-center gap-2 text-slate-400 text-sm">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                No commitment. No fees. Just answers.
+              </div>
             </div>
 
-            {/* Floating badges — CSS animation only */}
-            <div
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl px-6 py-4 shadow-2xl"
-              style={{ opacity: heroLoaded ? 1 : 0, transition: 'opacity 0.7s ease 1s' }}
-            >
-              <p className="fraunces text-3xl font-bold text-gray-900">98%</p>
-              <p className="text-xs text-gray-500 mt-0.5">Patient satisfaction rate</p>
-            </div>
-            <div
-              className="absolute -top-4 -right-4 bg-blue-600 rounded-2xl px-5 py-3 shadow-2xl"
-              style={{ opacity: heroLoaded ? 1 : 0, transition: 'opacity 0.7s ease 1.2s' }}
-            >
-              <p className="fraunces text-2xl font-bold text-white">700+</p>
-              <p className="text-white font-medium text-xs">Clinics in India</p>
+            {/* Trust badges footer */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mt-20 pt-10 border-t border-white/10 w-full">
+              {[
+                { label: 'Years of Excellence', num: '25', suffix: '+' },
+                { label: 'Clinics in India', num: '700', suffix: '+' },
+                { label: 'Patient Satisfaction', num: '98', suffix: '%' },
+                { label: 'Happy Patients', num: '10000', suffix: '+' },
+              ].map((stat, i) => (
+                <div key={i} className="text-center group">
+                  <p className="fraunces text-3xl md:text-4xl font-bold text-white mb-1 group-hover:scale-110 transition-transform">
+                    <CountUp target={stat.num} suffix={stat.suffix} duration={2.5} />
+                  </p>
+                  <p className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-medium">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -272,7 +278,7 @@ const Home = () => {
                   itemOne={
                     <div className="relative w-full h-full">
                       <ReactCompareSliderImage
-                        src="/images/slider/whitening/before.jpg"
+                        src={whiteBefore}
                         alt="Before"
                         style={{ filter: 'sepia(0.25) saturate(1.1) brightness(0.95)' }}
                       />
@@ -282,7 +288,7 @@ const Home = () => {
                   itemTwo={
                     <div className="relative w-full h-full">
                       <ReactCompareSliderImage
-                        src="/images/slider/whitening/after.jpg"
+                        src={whiteAfter}
                         alt="After"
                       />
                       <div className="absolute bottom-6 right-6 bg-blue-600/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-blue-400/20">After</div>
@@ -308,23 +314,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* ── COUNT STATS ───────────────────────────────────────────────── */}
-      <section className="bg-[#060e1f] py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10 border border-white/10 rounded-3xl overflow-hidden">
-              {stats.map((s, i) => (
-                <div key={i} className="p-10 text-center hover:bg-blue-600/[0.08] transition-colors">
-                  <p className="fraunces text-5xl lg:text-6xl font-bold text-white mb-2">
-                    <CountUp target={s.num} suffix={s.suffix} duration={2.5} />
-                  </p>
-                  <p className="text-slate-400 text-sm">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
+
 
       {/* ── TREATMENTS ─────────────────────────────────────────────────── */}
       <section className="py-28 px-6 lg:px-12 max-w-7xl mx-auto">
