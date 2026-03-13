@@ -1,10 +1,100 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ChevronDown, ChevronUp, Phone, Calendar } from 'lucide-react';
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
 const TreatmentPage = ({ treatment }) => {
   const [openFaq, setOpenFaq] = useState(null);
+
+  // --- Scroll-driven SVG line for Procedure Steps ---
+  const stepsContainerRef = useRef(null);
+  const dotRefs = useRef([]);
+  const [svgPath, setSvgPath] = useState('');
+  const [pathLength, setPathLength] = useState(0);
+  const [drawLength, setDrawLength] = useState(0);
+  const svgPathRef = useRef(null);
+  const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+
+  // Build the SVG path connecting dots
+  const computePath = useCallback(() => {
+    const container = stepsContainerRef.current;
+    if (!container) return;
+    const dots = dotRefs.current.filter(Boolean);
+    if (dots.length < 2) return;
+
+    const containerRect = container.getBoundingClientRect();
+
+    // Get center of each dot relative to the container
+    const points = dots.map((dot) => {
+      const r = dot.getBoundingClientRect();
+      return {
+        x: r.left + r.width / 2 - containerRect.left,
+        y: r.top + r.height / 2 - containerRect.top,
+      };
+    });
+
+    // Build a smooth cubic bezier path through all points
+    let d = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 0; i < points.length - 1; i++) {
+      const curr = points[i];
+      const next = points[i + 1];
+      // Control point offset – curves horizontally toward the midpoint
+      const cpOffset = Math.abs(next.y - curr.y) * 0.4;
+      const cp1x = curr.x;
+      const cp1y = curr.y + cpOffset;
+      const cp2x = next.x;
+      const cp2y = next.y - cpOffset;
+      d += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${next.x} ${next.y}`;
+    }
+
+    setSvgPath(d);
+    setSvgSize({ w: containerRect.width, h: containerRect.height });
+  }, []);
+
+  // After path renders, grab its total length
+  useEffect(() => {
+    if (svgPathRef.current && svgPath) {
+      setPathLength(svgPathRef.current.getTotalLength());
+    }
+  }, [svgPath]);
+
+  // Compute path on mount + resize
+  useEffect(() => {
+    // small delay so layout settles
+    const timer = setTimeout(computePath, 200);
+    window.addEventListener('resize', computePath);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', computePath);
+    };
+  }, [computePath, treatment]);
+
+  // Scroll handler – draw the line proportionally
+  useEffect(() => {
+    if (!pathLength) return;
+
+    const handleScroll = () => {
+      const container = stepsContainerRef.current;
+      if (!container) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      // How far through the section the viewport center has scrolled
+      const sectionTop = containerRect.top + window.scrollY;
+      const sectionH = containerRect.height;
+      const scrollY = window.scrollY + windowH * 0.55;
+
+      let progress = (scrollY - sectionTop) / sectionH;
+      progress = Math.max(0, Math.min(1, progress));
+
+      setDrawLength(progress * pathLength);
+    };
+
+    handleScroll(); // initial
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathLength]);
 
   return (
     <div className="font-sans text-gray-800 bg-white">
@@ -182,12 +272,64 @@ const TreatmentPage = ({ treatment }) => {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">The Procedure</h2>
         <div className="w-12 h-1 bg-blue-600 rounded mx-auto mb-12" />
-        <div className="relative">
-          <div className="hidden lg:block absolute left-[50%] top-0 bottom-0 w-px bg-blue-100" />
+        <div className="relative" ref={stepsContainerRef}>
+          {/* SVG curved line (desktop only) */}
+          {svgPath && (
+            <svg
+              className="hidden lg:block absolute inset-0 pointer-events-none"
+              width={svgSize.w}
+              height={svgSize.h}
+              style={{ zIndex: 0, overflow: 'visible' }}
+            >
+              {/* Faint background track */}
+              <path
+                d={svgPath}
+                fill="none"
+                stroke="#DBEAFE"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              {/* Animated blue drawn line */}
+              <path
+                ref={svgPathRef}
+                d={svgPath}
+                fill="none"
+                stroke="url(#blueGrad)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                style={{
+                  strokeDasharray: pathLength,
+                  strokeDashoffset: pathLength - drawLength,
+                  transition: 'stroke-dashoffset 0.08s linear',
+                }}
+              />
+              {/* Glow effect on the leading edge */}
+              <path
+                d={svgPath}
+                fill="none"
+                stroke="#3B82F6"
+                strokeWidth="8"
+                strokeLinecap="round"
+                opacity="0.15"
+                style={{
+                  strokeDasharray: pathLength,
+                  strokeDashoffset: pathLength - drawLength,
+                  transition: 'stroke-dashoffset 0.08s linear',
+                  filter: 'blur(6px)',
+                }}
+              />
+              <defs>
+                <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#3B82F6" />
+                  <stop offset="100%" stopColor="#2563EB" />
+                </linearGradient>
+              </defs>
+            </svg>
+          )}
           <div className="space-y-8">
             {treatment.steps.map((step, i) => (
               <div key={i} className={`flex flex-col lg:flex-row items-start gap-6 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="flex-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-shadow">
+                <div className="flex-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-shadow relative" style={{ zIndex: 1 }}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
                       {i + 1}
@@ -196,8 +338,30 @@ const TreatmentPage = ({ treatment }) => {
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed pl-11">{step.desc}</p>
                 </div>
-                <div className="hidden lg:flex w-8 items-center justify-center shrink-0">
-                  <div className="w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-md" />
+                <div
+                  className="hidden lg:flex w-8 items-center justify-center shrink-0"
+                  style={{ zIndex: 2 }}
+                  ref={(el) => (dotRefs.current[i] = el)}
+                >
+                  <div
+                    className="rounded-full border-4 border-white shadow-lg transition-all duration-300"
+                    style={{
+                      width: 20,
+                      height: 20,
+                      background:
+                        drawLength > 0 &&
+                        pathLength > 0 &&
+                        (drawLength / pathLength) >= (i / Math.max(treatment.steps.length - 1, 1)) * 0.95
+                          ? '#2563EB'
+                          : '#93C5FD',
+                      boxShadow:
+                        drawLength > 0 &&
+                        pathLength > 0 &&
+                        (drawLength / pathLength) >= (i / Math.max(treatment.steps.length - 1, 1)) * 0.95
+                          ? '0 0 12px rgba(59, 130, 246, 0.5), 0 2px 8px rgba(0,0,0,0.15)'
+                          : '0 2px 6px rgba(0,0,0,0.1)',
+                    }}
+                  />
                 </div>
                 <div className="flex-1 hidden lg:block" />
               </div>
