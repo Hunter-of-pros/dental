@@ -69,7 +69,7 @@ const Reveal = ({ children, delay = 0, className = '' }) => {
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 const stats = [
   { num: '700', suffix: '+', label: 'Clinics Across India' },
-  { num: '1000000', suffix: '+', label: 'Happy Patients' },
+  { num: '10000', suffix: '+', label: 'Happy Patients' },
   { num: '25',  suffix: '+', label: 'Years of Excellence' },
   { num: '98',  suffix: '%', label: 'Patient Satisfaction' },
 ];
